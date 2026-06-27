@@ -4,56 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ROelBOT Advisory — De markt daagt uit. Wij leveren de landing.</title>
-  <meta name="description" content="ROelBOT Advisory begeleidt zorgbestuurders en zorgverzekeraars bij de implementatie en financiering van zorgrobotica. Embodied AI, van strategie tot de Technische Landingsbaan." />
+  <meta name="description" content="ROelBOT Advisory is de Robotica-regisseur voor de Nederlandse zorg. Wij verbinden strategie, embodied AI en harde IT-infrastructuur — van businesscase tot de Technische Landingsbaan." />
   <meta name="theme-color" content="#0B0F19" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="ROelBOT Advisory — De Robotica-regisseur voor de zorg" />
-  <meta property="og:description" content="Robots zijn geen gadget, maar de fysieke executielaag van AI. Wij overbruggen strategie, robotica en harde IT-infrastructuur." />
+  <meta property="og:description" content="Robots zijn geen gadget, maar de fysieke executielaag van AI. Wij overbruggen zorgstrategie, robotica en harde IT-infrastructuur." />
   <meta property="og:type" content="website" />
 
-  <!-- Fonts -->
+  <!-- Fonts: Space Grotesk (titels/labels) + Inter (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            night:    '#0B0F19',
-            panel:    '#0E1322',
-            panel2:   '#121829',
-            stroke:   '#1E2740',
-            amber:    '#F59E0B',
-            amberlt:  '#FBBF24',
-            rose:     '#F87171',
-            emerald:  '#34D399',
-            ink:      '#E6EAF2',
-            muted:    '#94A0B8',
+            night:  '#0B0F19',
+            panel:  '#0E1322',
+            panel2: '#121A2E',
+            stroke: '#1C2540',
+            amber:  '#F59E0B',
+            amberlt:'#FBBF24',
+            amberdk:'#D97706',
+            rose:   '#F87171',
+            emerald:'#34D399',
+            ink:    '#E8ECF4',
+            muted:  '#94A0B8',
+            faint:  '#5B6680',
           },
           fontFamily: {
             display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui'],
-            body:    ['Inter', '"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui'],
-            jakarta: ['"Plus Jakarta Sans"', 'Inter', 'ui-sans-serif'],
+            body:    ['Inter', 'ui-sans-serif', 'system-ui'],
           },
-          maxWidth: {
-            '8xl': '88rem',
-          },
+          maxWidth: { '8xl': '90rem' },
+          letterSpacing: { tightest: '-0.04em' },
           boxShadow: {
-            'glow': '0 0 0 1px rgba(245,158,11,0.18), 0 18px 50px -12px rgba(245,158,11,0.25)',
-            'card': '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 20px 40px -24px rgba(0,0,0,0.8)',
+            glow: '0 0 0 1px rgba(245,158,11,0.20), 0 22px 60px -16px rgba(245,158,11,0.30)',
+            card: '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 30px 60px -32px rgba(0,0,0,0.9)',
           },
           keyframes: {
-            floaty: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
-            fadeup: { '0%': { opacity: 0, transform: 'translateY(18px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+            floaty:  { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-14px)' } },
+            sweep:   { '0%': { transform: 'translateX(-120%)' }, '100%': { transform: 'translateX(220%)' } },
+            pulseDot:{ '0%,100%': { opacity: 1 }, '50%': { opacity: 0.35 } },
           },
           animation: {
-            floaty: 'floaty 6s ease-in-out infinite',
-            fadeup: 'fadeup 0.7s ease-out both',
+            floaty: 'floaty 7s ease-in-out infinite',
+            sweep:  'sweep 7s ease-in-out infinite',
+            pulseDot: 'pulseDot 2.4s ease-in-out infinite',
           },
         },
       },
@@ -62,72 +64,92 @@
 
   <style>
     html, body { background: #0B0F19; }
-    body { font-family: 'Inter', 'Plus Jakarta Sans', sans-serif; -webkit-font-smoothing: antialiased; color: #E6EAF2; }
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; color: #E8ECF4; }
     .font-display { font-family: 'Space Grotesk', sans-serif; }
 
-    /* Tech grid + radial glow background */
-    .bg-grid {
-      background-image:
-        linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px);
-      background-size: 56px 56px;
+    /* ---- Cinematic atmospherics ---- */
+    .vignette::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(120% 90% at 50% 0%, transparent 40%, rgba(0,0,0,0.55) 100%);
     }
-    .bg-aurora {
+    /* Film grain (global, fixed) */
+    .grain::after {
+      content: ''; position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    /* Amber spotlight + atmospheric depth for hero */
+    .hero-stage {
       background:
-        radial-gradient(60% 50% at 15% 0%, rgba(245,158,11,0.10), transparent 60%),
-        radial-gradient(50% 50% at 90% 10%, rgba(52,211,153,0.07), transparent 60%);
+        radial-gradient(70% 55% at 62% 8%, rgba(245,158,11,0.16), transparent 60%),
+        radial-gradient(55% 45% at 18% 22%, rgba(52,211,153,0.06), transparent 60%),
+        radial-gradient(120% 120% at 50% 120%, rgba(245,158,11,0.05), transparent 55%),
+        linear-gradient(180deg, #0B0F19 0%, #0A0D16 100%);
     }
-    .text-gradient {
-      background: linear-gradient(180deg, #FFFFFF 0%, #B9C2D6 100%);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+    /* Perspective "grounded" stage floor — receding, heavily faded (not a flat grid) */
+    .floor {
+      position: absolute; left: 50%; bottom: -2px; width: 200%; height: 46vh; transform: translateX(-50%);
+      background-image:
+        linear-gradient(to right, rgba(245,158,11,0.10) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(245,158,11,0.10) 1px, transparent 1px);
+      background-size: 60px 60px;
+      transform: translateX(-50%) perspective(50vh) rotateX(70deg);
+      transform-origin: bottom center;
+      mask-image: linear-gradient(to top, rgba(0,0,0,0.9), transparent 78%);
+      -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.9), transparent 78%);
+      pointer-events: none;
     }
-    .amber-gradient {
-      background: linear-gradient(95deg, #FBBF24, #F59E0B);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+    /* Light sweep across the robot */
+    .sweep-line {
+      position: absolute; top: 0; bottom: 0; width: 40%;
+      background: linear-gradient(90deg, transparent, rgba(245,158,11,0.10), transparent);
+      filter: blur(8px); animation: sweep 7s ease-in-out infinite;
     }
-    /* Custom scrollbar */
+    .text-gradient { background: linear-gradient(180deg,#FFFFFF 0%, #AEB8CE 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .amber-gradient { background: linear-gradient(95deg,#FBBF24,#D97706); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    /* Section faint top divider glow */
+    .divider-glow { position: relative; }
+    .divider-glow::before { content:''; position:absolute; top:-1px; left:15%; right:15%; height:1px;
+      background: linear-gradient(90deg, transparent, rgba(245,158,11,0.4), transparent); }
+
     ::-webkit-scrollbar { width: 10px; height: 10px; }
     ::-webkit-scrollbar-track { background: #0B0F19; }
-    ::-webkit-scrollbar-thumb { background: #1E2740; border-radius: 8px; }
+    ::-webkit-scrollbar-thumb { background: #1C2540; border-radius: 8px; }
     ::-webkit-scrollbar-thumb:hover { background: #2a3658; }
 
-    /* Card hover sheen */
-    .card-hover { transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
-    .card-hover:hover { transform: translateY(-4px); border-color: rgba(245,158,11,0.35); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.9); }
+    .card-hover { transition: transform .4s cubic-bezier(.2,.7,.2,1), border-color .4s, box-shadow .4s; }
+    .card-hover:hover { transform: translateY(-5px); border-color: rgba(245,158,11,0.35); box-shadow: 0 40px 70px -34px rgba(0,0,0,0.95); }
 
-    /* Accordion */
     .acc-body { max-height: 0; overflow: hidden; transition: max-height .45s ease; }
     .acc-item.open .acc-body { max-height: 900px; }
     .acc-item.open .acc-chevron { transform: rotate(45deg); }
 
-    /* Filter active */
     .filter-btn.active { background: #F59E0B; color: #0B0F19; border-color: #F59E0B; }
 
-    /* Reveal on scroll */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
     .reveal.in { opacity: 1; transform: translateY(0); }
 
-    /* Modal */
-    .modal-overlay { transition: opacity .25s ease; }
     .no-scroll { overflow: hidden; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .animate-floaty, .sweep-line { animation: none; }
+    }
   </style>
 </head>
 
-<body class="bg-night text-ink antialiased selection:bg-amber/30 selection:text-white">
+<body class="grain bg-night text-ink antialiased selection:bg-amber/30 selection:text-white">
 
-  <!-- ============== HEADER / NAV ============== -->
-  <header id="top" class="fixed top-0 inset-x-0 z-50 transition-all duration-300" data-header>
+  <!-- ============================== HEADER ============================== -->
+  <header id="top" class="fixed top-0 inset-x-0 z-50" data-header>
     <div class="mx-auto max-w-8xl px-5 sm:px-8">
-      <nav class="mt-3 flex items-center justify-between rounded-2xl border border-stroke/70 bg-night/70 px-4 sm:px-6 py-3 backdrop-blur-xl">
-        <!-- Logo -->
+      <nav class="mt-3 flex items-center justify-between rounded-2xl border border-stroke/70 bg-night/60 px-4 sm:px-6 py-3 backdrop-blur-xl transition-all duration-300" data-nav>
         <a href="#top" class="group flex items-center gap-2.5">
-          <span class="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-amber to-amberlt text-night font-display font-bold text-lg shadow-glow">R</span>
+          <span class="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-amberlt to-amberdk text-night font-display font-bold text-lg shadow-glow">R</span>
           <span class="font-display text-xl font-bold tracking-tight">
             <span class="text-white">ROel</span><span class="amber-gradient">BOT</span>
           </span>
         </a>
 
-        <!-- Desktop links -->
         <ul class="hidden lg:flex items-center gap-8 text-sm font-medium text-muted">
           <li><a href="#visie" class="hover:text-white transition">De Visie</a></li>
           <li><a href="#oplossingen" class="hover:text-white transition">13 Oplossingen</a></li>
@@ -141,7 +163,6 @@
             BOEK EEN SCAN
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <!-- Mobile toggle -->
           <button id="navToggle" aria-label="Menu" class="lg:hidden grid h-10 w-10 place-items-center rounded-lg border border-stroke text-ink">
             <svg id="iconOpen" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
             <svg id="iconClose" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
@@ -149,7 +170,6 @@
         </div>
       </nav>
 
-      <!-- Mobile menu -->
       <div id="mobileMenu" class="lg:hidden hidden mt-2 rounded-2xl border border-stroke/70 bg-panel/95 backdrop-blur-xl p-4">
         <ul class="flex flex-col gap-1 text-sm font-medium">
           <li><a href="#visie" class="mobile-link block rounded-lg px-3 py-3 text-muted hover:bg-panel2 hover:text-white">De Visie</a></li>
@@ -163,93 +183,157 @@
     </div>
   </header>
 
-  <!-- ============== HERO ============== -->
-  <section class="relative overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
-    <div class="absolute inset-0 bg-grid"></div>
-    <div class="absolute inset-0 bg-aurora"></div>
-    <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-night to-transparent"></div>
+  <!-- ============================== HERO ============================== -->
+  <section class="relative min-h-screen overflow-hidden hero-stage vignette flex items-center pt-32 pb-20">
+    <!-- grounded perspective floor -->
+    <div class="floor"></div>
+    <!-- atmospheric blurred orbs -->
+    <div class="pointer-events-none absolute -top-10 right-[8%] h-[34rem] w-[34rem] rounded-full bg-amber/10 blur-[120px]"></div>
+    <div class="pointer-events-none absolute bottom-0 left-[2%] h-80 w-80 rounded-full bg-emerald/[0.05] blur-[110px]"></div>
 
-    <div class="relative mx-auto max-w-8xl px-5 sm:px-8">
-      <div class="mx-auto max-w-4xl text-center">
-        <div class="reveal inline-flex items-center gap-2 rounded-full border border-stroke bg-panel/60 px-4 py-1.5 text-xs font-medium text-muted backdrop-blur">
-          <span class="h-1.5 w-1.5 rounded-full bg-emerald animate-pulse"></span>
+    <!-- Cinematic humanoid robot, emerging from shadow on the right -->
+    <div class="pointer-events-none absolute right-0 top-1/2 hidden md:block h-[112%] -translate-y-1/2 opacity-[0.9]">
+      <div class="relative h-full">
+        <div class="sweep-line"></div>
+        <svg class="h-full w-auto drop-shadow-[0_30px_60px_rgba(0,0,0,0.7)]" viewBox="0 0 320 620" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="botBody" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#161D31"/>
+              <stop offset="1" stop-color="#0C111D"/>
+            </linearGradient>
+            <linearGradient id="botRim" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FBBF24" stop-opacity="0.9"/>
+              <stop offset="1" stop-color="#D97706" stop-opacity="0.25"/>
+            </linearGradient>
+            <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2"/></filter>
+          </defs>
+          <g stroke="url(#botRim)" stroke-width="1.4" fill="url(#botBody)">
+            <!-- head -->
+            <rect x="126" y="34" width="56" height="60" rx="20"/>
+            <rect x="134" y="52" width="40" height="18" rx="9" fill="#0A0D16" stroke="none"/>
+            <rect x="139" y="57" width="11" height="8" rx="4" fill="#FBBF24" stroke="none" opacity="0.95"/>
+            <rect x="158" y="57" width="11" height="8" rx="4" fill="#FBBF24" stroke="none" opacity="0.95"/>
+            <!-- neck -->
+            <rect x="146" y="92" width="16" height="14" rx="6"/>
+            <!-- torso -->
+            <path d="M112 112 q44 -16 84 0 l8 96 q-50 18 -100 0 z"/>
+            <circle cx="154" cy="150" r="9" fill="#0A0D16" stroke="url(#botRim)"/>
+            <circle cx="154" cy="150" r="3.4" fill="#34D399" stroke="none"/>
+            <line x1="128" y1="176" x2="180" y2="176" stroke="#243152" stroke-width="2"/>
+            <!-- shoulders -->
+            <circle cx="108" cy="124" r="13"/>
+            <circle cx="200" cy="124" r="13"/>
+            <!-- left arm -->
+            <rect x="92" y="130" width="22" height="78" rx="11"/>
+            <rect x="92" y="206" width="20" height="74" rx="10"/>
+            <rect x="92" y="280" width="22" height="26" rx="8"/>
+            <!-- right arm -->
+            <rect x="194" y="130" width="22" height="78" rx="11"/>
+            <rect x="196" y="206" width="20" height="74" rx="10"/>
+            <rect x="194" y="280" width="22" height="26" rx="8"/>
+            <!-- pelvis -->
+            <rect x="118" y="208" width="72" height="36" rx="14"/>
+            <!-- left leg -->
+            <rect x="124" y="244" width="28" height="104" rx="13"/>
+            <rect x="126" y="348" width="24" height="104" rx="11"/>
+            <path d="M122 452 h34 l10 22 h-52 z"/>
+            <!-- right leg -->
+            <rect x="156" y="244" width="28" height="104" rx="13"/>
+            <rect x="158" y="348" width="24" height="104" rx="11"/>
+            <path d="M152 452 h34 l10 22 h-52 z"/>
+          </g>
+          <!-- ground contact glow -->
+          <ellipse cx="160" cy="486" rx="120" ry="14" fill="#F59E0B" opacity="0.10" filter="url(#soft)"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 mx-auto max-w-8xl px-5 sm:px-8 w-full">
+      <div class="max-w-3xl">
+        <div class="reveal inline-flex items-center gap-2 rounded-full border border-stroke bg-night/50 px-4 py-1.5 text-xs font-medium text-muted backdrop-blur">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald animate-pulseDot"></span>
           Robotica-regisseur voor de zorg · Embodied AI × Harde IT
         </div>
 
-        <h1 class="reveal mt-7 font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tight">
-          <span class="text-gradient">De markt daagt uit.</span><br />
-          <span class="amber-gradient">Wij leveren de landing.</span>
+        <h1 class="reveal mt-7 font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tightest">
+          De markt daagt uit.<br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Wij leveren de landing.</span>
         </h1>
 
-        <p class="reveal mx-auto mt-7 max-w-2xl text-base sm:text-lg leading-relaxed text-muted">
-          Robots zijn geen gadget. Ze zijn de <span class="text-ink font-semibold">fysieke executielaag van AI</span> —
-          Embodied AI, aangedreven door Reinforcement Learning. Wij verbinden zorgstrategie, geavanceerde
-          robotica en harde IT-infrastructuur, zodat innovatie niet strandt op financiering of het netwerk.
+        <p class="reveal mt-7 max-w-2xl text-base sm:text-lg leading-relaxed text-muted">
+          Robots zijn geen gadget. Ze zijn de <span class="font-display font-semibold text-amber">fysieke executielaag van AI</span> —
+          Embodied AI, aangedreven door Reinforcement Learning. Wij verbinden zorgstrategie, geavanceerde robotica en
+          harde IT-infrastructuur, zodat innovatie niet strandt op financiering of op het netwerk.
         </p>
 
-        <div class="reveal mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a href="#oplossingen" class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-amber px-6 py-3.5 text-sm font-semibold text-night shadow-glow transition hover:bg-amberlt">
+        <div class="reveal mt-9 flex flex-col sm:flex-row gap-3">
+          <a href="#oplossingen" class="inline-flex items-center justify-center gap-2 rounded-xl bg-amber px-6 py-3.5 text-sm font-semibold text-night shadow-glow transition hover:bg-amberlt">
             Ontdek de 13 Use Cases
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="#visie" class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-stroke bg-panel/50 px-6 py-3.5 text-sm font-semibold text-ink backdrop-blur transition hover:border-amber/40 hover:bg-panel">
+          <a href="#visie" class="inline-flex items-center justify-center gap-2 rounded-xl border border-stroke bg-night/40 px-6 py-3.5 text-sm font-semibold text-ink backdrop-blur transition hover:border-amber/40 hover:bg-panel">
             Waarom innovatie nu stokt →
           </a>
         </div>
 
-        <!-- Trust strip -->
-        <div class="reveal mt-14 grid grid-cols-2 sm:grid-cols-4 gap-px overflow-hidden rounded-2xl border border-stroke/70 bg-stroke/40 text-center">
-          <div class="bg-night/80 px-4 py-5">
-            <div class="font-display text-2xl font-bold text-white">20+</div>
-            <div class="mt-1 text-xs text-muted">jaar IT-management in de zorg</div>
+        <!-- Metrics bento -->
+        <div class="reveal mt-14 grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-3xl">
+          <div class="rounded-2xl border border-stroke/70 bg-panel/50 px-5 py-5 backdrop-blur">
+            <div class="font-display text-3xl font-bold text-white">20+</div>
+            <div class="mt-1 text-xs leading-relaxed text-muted">jaar IT-management in de zorg</div>
           </div>
-          <div class="bg-night/80 px-4 py-5">
-            <div class="font-display text-2xl font-bold text-white">13</div>
-            <div class="mt-1 text-xs text-muted">gefinancierde use cases</div>
+          <div class="rounded-2xl border border-stroke/70 bg-panel/50 px-5 py-5 backdrop-blur">
+            <div class="font-display text-3xl font-bold text-white">13</div>
+            <div class="mt-1 text-xs leading-relaxed text-muted">gefinancierde use cases</div>
           </div>
-          <div class="bg-night/80 px-4 py-5">
-            <div class="font-display text-2xl font-bold text-white">NEN 7510</div>
-            <div class="mt-1 text-xs text-muted">& EU AI Act compliant</div>
+          <div class="rounded-2xl border border-stroke/70 bg-panel/50 px-5 py-5 backdrop-blur">
+            <div class="font-display text-xl font-bold text-white">NEN 7510</div>
+            <div class="mt-1 text-xs leading-relaxed text-muted">&amp; EU AI Act compliant</div>
           </div>
-          <div class="bg-night/80 px-4 py-5">
-            <div class="font-display text-2xl font-bold text-white">ROS</div>
-            <div class="mt-1 text-xs text-muted">/ Linux landingsbaan</div>
+          <div class="rounded-2xl border border-stroke/70 bg-panel/50 px-5 py-5 backdrop-blur">
+            <div class="font-display text-xl font-bold text-white">ROS / Linux</div>
+            <div class="mt-1 text-xs leading-relaxed text-muted">landingsbaan op orde</div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-night to-transparent"></div>
   </section>
 
-  <!-- ============== DE SYSTEMISCHE CONFRONTATIE ============== -->
-  <section id="visie" class="relative py-20 sm:py-28 border-t border-stroke/60">
+  <!-- ============================== DE SYSTEMISCHE CONFRONTATIE ============================== -->
+  <section id="visie" class="relative py-20 sm:py-28 divider-glow">
     <div class="mx-auto max-w-8xl px-5 sm:px-8">
       <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         <div class="lg:col-span-5 reveal">
-          <span class="font-display text-xs font-semibold uppercase tracking-[0.2em] text-amber">De Systemische Confrontatie</span>
-          <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight">
+          <span class="font-display text-xs font-semibold uppercase tracking-[0.22em] text-amber">De Systemische Confrontatie</span>
+          <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.08] tracking-tightest">
             De zorg heeft haar eigen IT <span class="text-gradient">wegbezuinigd</span>.
           </h2>
           <p class="mt-6 text-base leading-relaxed text-muted">
-            Het is het ongemakkelijke verhaal achter elke vastgelopen pilot. En het is precies waar wij beginnen.
+            Het is het ongemakkelijke verhaal achter elke vastgelopen pilot — en precies de plek waar wij beginnen.
+            Niet de robot is het probleem. Het netwerk eronder is het probleem.
           </p>
 
-          <div class="mt-8 space-y-4">
+          <div class="mt-8 space-y-5">
             <div class="flex items-start gap-3">
-              <span class="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-md bg-rose/15 text-rose">
-                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
-              </span>
-              <p class="text-sm leading-relaxed text-muted"><span class="text-ink font-semibold">De systeembeheerder is weg.</span> Zorginstellingen besteedden hun "commodity IT" (Outlook, het EPD) uit aan externe Managed Service Providers. De interne netwerk- en systeemkennis verdween mee de deur uit.</p>
+              <span class="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-rose/15 text-rose font-display text-sm font-bold">1</span>
+              <p class="text-sm leading-relaxed text-muted"><span class="text-ink font-semibold">De systeembeheerder is weg.</span> Zorginstellingen besteedden hun "commodity IT" — Outlook, het EPD, de werkplek — uit aan externe Managed Service Providers. De interne netwerk- en systeemkennis verdween mee de deur uit.</p>
             </div>
             <div class="flex items-start gap-3">
-              <span class="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-md bg-rose/15 text-rose">
-                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
-              </span>
-              <p class="text-sm leading-relaxed text-muted"><span class="text-ink font-semibold">De MSP blokkeert de robot.</span> Arriveert er een Linux- of ROS-gebaseerde robot of exoskelet, dan zegt de MSP "nee" — uit angst voor het netwerk, strakke SLA's of simpelweg gebrek aan kennis. De innovatie sterft in de serverruimte.</p>
+              <span class="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-rose/15 text-rose font-display text-sm font-bold">2</span>
+              <p class="text-sm leading-relaxed text-muted"><span class="text-ink font-semibold">De MSP rekent af op stabiliteit, niet op innovatie.</span> Het contract is geoptimaliseerd voor een veilige, statische werkplek. Een Linux- of ROS-gebaseerde robot is binnen die SLA een afwijking, een risico — geen kerntaak.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-rose/15 text-rose font-display text-sm font-bold">3</span>
+              <p class="text-sm leading-relaxed text-muted"><span class="text-ink font-semibold">Dus sterft de innovatie in de serverruimte.</span> Arriveert het exoskelet of de AMR, dan zegt de externe IT-partij "nee" — uit angst voor het netwerk, uit gebrek aan kennis, of simpelweg omdat het buiten scope valt. De business case haalt de werkvloer nooit.</p>
             </div>
           </div>
         </div>
 
-        <div class="lg:col-span-7 reveal">
+        <!-- ROelBOT proxy + architecture diagram -->
+        <div id="landingsbaan" class="lg:col-span-7 reveal scroll-mt-28">
           <div class="relative rounded-3xl border border-stroke bg-panel/60 p-7 sm:p-9 shadow-card backdrop-blur">
             <div class="absolute -top-px left-10 right-10 h-px bg-gradient-to-r from-transparent via-amber/60 to-transparent"></div>
             <div class="flex items-center gap-3">
@@ -257,84 +341,122 @@
                 <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8M21 7v5M21 7h-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
               <div>
-                <div class="font-display text-lg font-semibold text-white">ROelBOT als proxy & interim-regisseur</div>
-                <div class="text-xs text-muted">Wij praten namens u met de MSP — en dwingen de landing af.</div>
+                <div class="font-display text-lg font-semibold text-white">De Technische Landingsbaan</div>
+                <div class="text-xs text-muted">ROelBOT als strategische proxy tussen bestuur, leverancier en MSP.</div>
               </div>
             </div>
 
             <p class="mt-6 text-sm leading-relaxed text-muted">
-              ROelBOT stapt in het gat tussen bestuur, leverancier en de externe IT-partij. Wij bouwen de
-              <span class="text-amber font-semibold">Technische Landingsbaan</span>: de infrastructuur die nodig is om
-              fysieke AI veilig en betrouwbaar te laten draaien binnen uw bestaande contracten.
+              Wij stappen in het gat. ROelBOT onderhandelt namens u met de externe IT-partij en bouwt de infrastructuur
+              waarop fysieke AI veilig draait — binnen uw bestaande contracten en compliant met de zorgnormen.
             </p>
 
-            <div class="mt-7 grid sm:grid-cols-3 gap-4">
-              <div class="rounded-2xl border border-stroke bg-night/60 p-4">
-                <div class="font-display text-sm font-semibold text-white">VLAN-segmentatie</div>
-                <p class="mt-1.5 text-xs leading-relaxed text-muted">Robotverkeer veilig geïsoleerd van het zorgnetwerk en het EPD.</p>
+            <!-- Diagram -->
+            <div class="mt-7 rounded-2xl border border-stroke bg-night/60 p-5">
+              <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-stretch gap-4">
+                <!-- Left: zorgnetwerk -->
+                <div class="rounded-xl border border-stroke bg-panel2/60 p-4">
+                  <div class="text-[11px] font-display font-semibold uppercase tracking-wider text-faint">Beheerd door externe MSP</div>
+                  <div class="mt-2 font-display text-sm font-semibold text-white">Zorgnetwerk &amp; EPD</div>
+                  <ul class="mt-2 space-y-1 text-xs text-muted">
+                    <li>· Strikte commodity-SLA</li>
+                    <li>· Werkplek, Outlook, EPD</li>
+                    <li>· Statisch &amp; dichtgetimmerd</li>
+                  </ul>
+                </div>
+
+                <!-- Middle: ROelBOT proxy / gateway -->
+                <div class="relative flex flex-col items-center justify-center rounded-xl border border-amber/40 bg-amber/[0.08] px-4 py-4 text-center">
+                  <span class="grid h-9 w-9 place-items-center rounded-lg bg-amber text-night">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <div class="mt-2 font-display text-sm font-semibold text-amber">ROelBOT</div>
+                  <div class="text-[11px] text-muted">Regie · Firewall · Gateway</div>
+                  <!-- connectors -->
+                  <span class="hidden sm:block absolute left-[-1.05rem] top-1/2 h-px w-4 bg-amber/50"></span>
+                  <span class="hidden sm:block absolute right-[-1.05rem] top-1/2 h-px w-4 bg-amber/50"></span>
+                </div>
+
+                <!-- Right: robotica VLAN -->
+                <div class="rounded-xl border border-stroke bg-panel2/60 p-4">
+                  <div class="text-[11px] font-display font-semibold uppercase tracking-wider text-emerald">Nieuw &amp; geïsoleerd</div>
+                  <div class="mt-2 font-display text-sm font-semibold text-white">Robotica-VLAN</div>
+                  <ul class="mt-2 space-y-1 text-xs text-muted">
+                    <li>· ROS / Linux robots</li>
+                    <li>· Low-latency Wi-Fi handover</li>
+                    <li>· Exoskeletten &amp; AMR's</li>
+                  </ul>
+                </div>
               </div>
-              <div class="rounded-2xl border border-stroke bg-night/60 p-4">
-                <div class="font-display text-sm font-semibold text-white">Low-latency Wi-Fi</div>
-                <p class="mt-1.5 text-xs leading-relaxed text-muted">Naadloze roaming & handover, zodat de robot nooit "valt" tussen accesspoints.</p>
-              </div>
-              <div class="rounded-2xl border border-stroke bg-night/60 p-4">
-                <div class="font-display text-sm font-semibold text-white">NEN 7510</div>
-                <p class="mt-1.5 text-xs leading-relaxed text-muted">Compliance & security-architectuur die de auditor én de MSP geruststelt.</p>
+
+              <!-- compliance ribbon -->
+              <div class="mt-4 flex flex-wrap items-center justify-center gap-2 rounded-lg border border-stroke bg-panel2/40 px-3 py-2.5">
+                <span class="text-[11px] font-display uppercase tracking-wider text-faint">Compliance-laag:</span>
+                <span class="rounded-md bg-night px-2.5 py-1 text-[11px] font-medium text-muted">NEN 7510</span>
+                <span class="rounded-md bg-night px-2.5 py-1 text-[11px] font-medium text-muted">EU AI Act</span>
+                <span class="rounded-md bg-night px-2.5 py-1 text-[11px] font-medium text-muted">Machinery Regulation</span>
+                <span class="rounded-md bg-night px-2.5 py-1 text-[11px] font-medium text-muted">AVG / NIS2</span>
               </div>
             </div>
 
-            <a href="#landingsbaan" class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-amber hover:text-amberlt transition">
-              Bekijk de Technische Landingsbaan
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
+            <div class="mt-6 grid sm:grid-cols-3 gap-3">
+              <div class="rounded-xl border border-stroke bg-night/50 p-4">
+                <div class="font-display text-sm font-semibold text-white">VLAN-segmentatie</div>
+                <p class="mt-1.5 text-xs leading-relaxed text-muted">Robotverkeer hermetisch gescheiden van het EPD en de werkplek.</p>
+              </div>
+              <div class="rounded-xl border border-stroke bg-night/50 p-4">
+                <div class="font-display text-sm font-semibold text-white">Low-latency Wi-Fi</div>
+                <p class="mt-1.5 text-xs leading-relaxed text-muted">Naadloze roaming &amp; handover, zodat de robot nooit "valt" tussen accesspoints.</p>
+              </div>
+              <div class="rounded-xl border border-stroke bg-night/50 p-4">
+                <div class="font-display text-sm font-semibold text-white">Security-architectuur</div>
+                <p class="mt-1.5 text-xs leading-relaxed text-muted">Een ontwerp dat de auditor én de externe MSP geruststelt.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============== 13 USE CASES MATRIX ============== -->
-  <section id="oplossingen" class="relative py-20 sm:py-28 border-t border-stroke/60 bg-gradient-to-b from-night to-panel/30">
+  <!-- ============================== 13 USE CASES ============================== -->
+  <section id="oplossingen" class="relative py-20 sm:py-28 divider-glow bg-gradient-to-b from-night to-panel/40">
     <div class="mx-auto max-w-8xl px-5 sm:px-8">
       <div class="max-w-3xl reveal">
-        <span class="font-display text-xs font-semibold uppercase tracking-[0.2em] text-amber">De 13 Oplossingen</span>
-        <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight">
+        <span class="font-display text-xs font-semibold uppercase tracking-[0.22em] text-amber">De 13 Oplossingen</span>
+        <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.08] tracking-tightest">
           Niet de techniek blokkeert. <span class="text-gradient">De financiering blokkeert.</span>
         </h2>
         <p class="mt-6 text-base leading-relaxed text-muted">
-          Elke use case kent een <span class="text-rose font-semibold">Perverse Prikkel</span> — een financieringsmodel dat innovatie
-          afstraft. En een <span class="text-emerald font-semibold">ROelBOT Neutralisatie</span> — de exacte governance- en
-          bekostigingsroute die de business case alsnog rond maakt.
+          Elke use case kent een <span class="text-rose-400 font-semibold">Perverse Prikkel</span> — een bekostigingsmodel dat
+          innovatie afstraft. En een <span class="text-emerald-400 font-semibold">ROelBOT Neutralisatie</span> — de exacte
+          governance- en financieringsroute die de business case alsnog rond maakt. Geen pilots voor de bühne, maar een
+          structurele verandering van het paradigma.
         </p>
       </div>
 
-      <!-- Filters -->
       <div class="mt-10 flex flex-wrap items-center gap-2.5 reveal" id="filterBar">
         <button class="filter-btn active rounded-full border border-stroke bg-panel px-4 py-2 text-xs font-semibold text-ink transition hover:border-amber/50" data-filter="all">Alle 13</button>
         <button class="filter-btn rounded-full border border-stroke bg-panel px-4 py-2 text-xs font-semibold text-muted transition hover:border-amber/50 hover:text-ink" data-filter="revalidatie">Revalidatie</button>
-        <button class="filter-btn rounded-full border border-stroke bg-panel px-4 py-2 text-xs font-semibold text-muted transition hover:border-amber/50 hover:text-ink" data-filter="vvt">VVT / Ouderenzorg</button>
+        <button class="filter-btn rounded-full border border-stroke bg-panel px-4 py-2 text-xs font-semibold text-muted transition hover:border-amber/50 hover:text-ink" data-filter="ouderenzorg">Ouderenzorg &amp; VVT</button>
         <button class="filter-btn rounded-full border border-stroke bg-panel px-4 py-2 text-xs font-semibold text-muted transition hover:border-amber/50 hover:text-ink" data-filter="ziekenhuis">Ziekenhuizen</button>
       </div>
 
-      <!-- Grid -->
-      <div id="caseGrid" class="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-        <!-- Cards injected by JS -->
-      </div>
-
+      <div id="caseGrid" class="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3"></div>
       <p id="noResults" class="hidden mt-10 text-center text-sm text-muted">Geen use cases in deze categorie.</p>
     </div>
   </section>
 
-  <!-- ============== SERVICES / HOE ROEL HELPT ============== -->
-  <section id="landingsbaan" class="relative py-20 sm:py-28 border-t border-stroke/60">
+  <!-- ============================== DIENSTEN ============================== -->
+  <section id="diensten" class="relative py-20 sm:py-28 divider-glow">
     <div class="mx-auto max-w-8xl px-5 sm:px-8">
       <div class="max-w-3xl reveal">
-        <span class="font-display text-xs font-semibold uppercase tracking-[0.2em] text-amber">Hoe Roel helpt</span>
-        <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight">
+        <span class="font-display text-xs font-semibold uppercase tracking-[0.22em] text-amber">Hoe Roel helpt</span>
+        <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.08] tracking-tightest">
           Drie trajecten. <span class="text-gradient">Van strategie tot het stopcontact.</span>
         </h2>
         <p class="mt-6 text-base leading-relaxed text-muted">
-          U kunt instappen waar uw vraagstuk zit — bij de strategie, bij de aanbesteding, of bij de harde IT.
+          U stapt in waar uw vraagstuk zit — bij de strategie, bij de aanbesteding, of bij de harde IT.
         </p>
       </div>
 
@@ -349,12 +471,13 @@
           </div>
           <h3 class="mt-6 font-display text-xl font-semibold text-white">Robot-Readiness Scan</h3>
           <p class="mt-3 text-sm leading-relaxed text-muted">
-            In 2 tot 4 weken brengen we uw workflows, ROI-potentieel en organisatorische gereedheid in kaart.
-            U krijgt een onderbouwd, bestuurbaar beeld: waar levert robotica écht waarde — en waar niet.
+            In 2 tot 4 weken voeren we een strategische procesanalyse uit: workflows, capaciteit, ROI-potentieel en
+            organisatorische gereedheid. U krijgt een onderbouwd, bestuurbaar beeld — waar robotica écht waarde levert,
+            en waar niet.
           </p>
           <ul class="mt-5 space-y-2 text-sm text-muted">
-            <li class="flex gap-2"><span class="text-amber">›</span> Workflow- & capaciteitsanalyse</li>
-            <li class="flex gap-2"><span class="text-amber">›</span> Business case & ROI-prognose</li>
+            <li class="flex gap-2"><span class="text-amber">›</span> Workflow- &amp; capaciteitsanalyse</li>
+            <li class="flex gap-2"><span class="text-amber">›</span> Business case &amp; ROI-bepaling</li>
             <li class="flex gap-2"><span class="text-amber">›</span> Bestuurlijk go / no-go advies</li>
           </ul>
         </article>
@@ -367,15 +490,15 @@
             </span>
             <span class="font-display text-5xl font-bold text-stroke/80 group-hover:text-amber/30 transition">02</span>
           </div>
-          <h3 class="mt-6 font-display text-xl font-semibold text-white">Aanbesteding & Businesscase</h3>
+          <h3 class="mt-6 font-display text-xl font-semibold text-white">Aanbestedingsbegeleiding &amp; Businesscase</h3>
           <p class="mt-3 text-sm leading-relaxed text-muted">
-            Wij zijn de vertaler tussen de bestuurskamer en de technische leverancier. Van programma van eisen
-            tot leverancierselectie en sluitende businesscase — zonder dat u verdwaalt in spec-sheets of sales-praat.
+            Wij zijn de vertaler tussen de bestuurseisen en de technische leveranciers. Van programma van eisen tot
+            leverancierselectie en sluitende businesscase — zonder dat u verdwaalt in spec-sheets of salespraat.
           </p>
           <ul class="mt-5 space-y-2 text-sm text-muted">
-            <li class="flex gap-2"><span class="text-amber">›</span> Programma van eisen & marktverkenning</li>
-            <li class="flex gap-2"><span class="text-amber">›</span> Leveranciersselectie & onderhandeling</li>
-            <li class="flex gap-2"><span class="text-amber">›</span> Financieringsroute & bekostiging</li>
+            <li class="flex gap-2"><span class="text-amber">›</span> Programma van eisen &amp; marktverkenning</li>
+            <li class="flex gap-2"><span class="text-amber">›</span> Leveranciersselectie &amp; onderhandeling</li>
+            <li class="flex gap-2"><span class="text-amber">›</span> Financieringsroute &amp; bekostiging</li>
           </ul>
         </article>
 
@@ -389,12 +512,13 @@
           </div>
           <h3 class="mt-6 font-display text-xl font-semibold text-white">De Technische Landingsbaan</h3>
           <p class="mt-3 text-sm leading-relaxed text-muted">
-            Het sluitstuk waar pilots normaal sneuvelen. Wij regelen de IT-governance, onderhandelen namens u met de
-            externe IT-MSP en ontwerpen de security-architectuur — compliant met NEN 7510, de EU AI Act en de
-            Machinery Regulation.
+            Het sluitstuk waar pilots normaal sneuvelen. Wij voeren de IT-governance, onderhandelen namens u met de
+            externe IT-MSP en ontwerpen de security-architectuur: een gesegmenteerd Robotica-VLAN, low-latency Wi-Fi
+            met naadloze handover, en een gateway die robotverkeer scheidt van het EPD — compliant met NEN 7510,
+            de EU AI Act en de Machinery Regulation.
           </p>
           <ul class="mt-5 space-y-2 text-sm text-muted">
-            <li class="flex gap-2"><span class="text-amber">›</span> VLAN, low-latency Wi-Fi & netwerkontwerp</li>
+            <li class="flex gap-2"><span class="text-amber">›</span> VLAN-ontwerp, segmentatie &amp; gateway</li>
             <li class="flex gap-2"><span class="text-amber">›</span> Onderhandeling met de externe IT-MSP</li>
             <li class="flex gap-2"><span class="text-amber">›</span> NEN 7510 · EU AI Act · Machinery Regulation</li>
           </ul>
@@ -403,22 +527,20 @@
     </div>
   </section>
 
-  <!-- ============== KEYNOTE / ZIEN IS GELOVEN ============== -->
-  <section id="keynote" class="relative overflow-hidden py-20 sm:py-28 border-t border-stroke/60">
-    <div class="absolute inset-0 bg-grid opacity-60"></div>
-    <div class="absolute -right-32 top-0 h-96 w-96 rounded-full bg-amber/10 blur-3xl"></div>
-
+  <!-- ============================== KEYNOTE ============================== -->
+  <section id="keynote" class="relative overflow-hidden py-20 sm:py-28 divider-glow">
+    <div class="absolute -right-32 top-10 h-96 w-96 rounded-full bg-amber/10 blur-[120px]"></div>
     <div class="relative mx-auto max-w-8xl px-5 sm:px-8">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div class="reveal">
-          <span class="font-display text-xs font-semibold uppercase tracking-[0.2em] text-amber">Keynote &amp; Spreker</span>
-          <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.05] tracking-tight">
+          <span class="font-display text-xs font-semibold uppercase tracking-[0.22em] text-amber">Keynote &amp; Spreker</span>
+          <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.05] tracking-tightest">
             "Zien is <span class="amber-gradient">geloven</span>."
           </h2>
           <p class="mt-6 text-base leading-relaxed text-muted">
             PowerPoint-moeheid doodt elk innovatiegesprek. Daarom doet Roel het anders: hij brengt een
-            <span class="text-ink font-semibold">echte, fysieke humanoïde robot</span> mee het podium op. Geen slides over
-            de toekomst — de toekomst die naast u staat, beweegt en reageert.
+            <span class="text-ink font-semibold">echte, fysieke humanoïde robot</span> mee het podium op. Geen slides
+            over de toekomst — de toekomst die naast u staat, beweegt en reageert.
           </p>
           <p class="mt-4 text-base leading-relaxed text-muted">
             Een high-impact keynote voor raden van bestuur, toezichthouders en congressen. Roel vertaalt embodied AI
@@ -438,24 +560,46 @@
           </a>
         </div>
 
+        <!-- Stage with humanoid robot -->
         <div class="reveal">
           <div class="relative rounded-3xl border border-stroke bg-panel/60 p-8 shadow-card backdrop-blur">
-            <div class="aspect-[4/5] w-full rounded-2xl border border-stroke bg-gradient-to-br from-panel2 to-night grid place-items-center relative overflow-hidden">
-              <div class="absolute inset-0 bg-grid opacity-50"></div>
-              <div class="relative text-center px-6 animate-floaty">
-                <svg class="mx-auto h-24 w-24 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <rect x="6" y="8" width="12" height="10" rx="3"/>
-                  <path d="M12 8V4M9 4h6" stroke-linecap="round"/>
-                  <circle cx="9.5" cy="13" r="1.2" fill="currentColor" stroke="none"/>
-                  <circle cx="14.5" cy="13" r="1.2" fill="currentColor" stroke="none"/>
-                  <path d="M4 12v4M20 12v4" stroke-linecap="round"/>
+            <div class="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-stroke bg-gradient-to-b from-panel2 to-night vignette">
+              <!-- stage spotlight -->
+              <div class="absolute inset-x-0 top-0 h-2/3 bg-[radial-gradient(60%_70%_at_50%_0%,rgba(245,158,11,0.18),transparent_70%)]"></div>
+              <!-- stage floor -->
+              <div class="absolute inset-x-0 bottom-0 h-1/3 bg-[linear-gradient(to_top,rgba(245,158,11,0.10),transparent)]"></div>
+              <!-- humanoid on stage -->
+              <div class="absolute inset-0 grid place-items-end justify-center pb-6">
+                <svg class="h-[78%] w-auto animate-floaty drop-shadow-[0_24px_40px_rgba(0,0,0,0.6)]" viewBox="0 0 200 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="botRimK" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#FBBF24" stop-opacity="0.9"/>
+                      <stop offset="1" stop-color="#D97706" stop-opacity="0.25"/>
+                    </linearGradient>
+                  </defs>
+                  <g stroke="url(#botRimK)" stroke-width="1.6" fill="#0E1322">
+                    <rect x="74" y="14" width="52" height="56" rx="19"/>
+                    <rect x="82" y="31" width="36" height="16" rx="8" fill="#0A0D16" stroke="none"/>
+                    <rect x="87" y="35" width="10" height="8" rx="4" fill="#FBBF24" stroke="none"/>
+                    <rect x="104" y="35" width="10" height="8" rx="4" fill="#FBBF24" stroke="none"/>
+                    <rect x="92" y="68" width="16" height="12" rx="6"/>
+                    <path d="M62 84 q38 -14 76 0 l6 84 q-44 16 -88 0 z"/>
+                    <circle cx="100" cy="118" r="8" fill="#0A0D16" stroke="url(#botRimK)"/>
+                    <circle cx="100" cy="118" r="3" fill="#34D399" stroke="none"/>
+                    <circle cx="60" cy="96" r="12"/><circle cx="140" cy="96" r="12"/>
+                    <rect x="46" y="100" width="20" height="70" rx="10"/><rect x="46" y="168" width="18" height="66" rx="9"/>
+                    <rect x="134" y="100" width="20" height="70" rx="10"/><rect x="136" y="168" width="18" height="66" rx="9"/>
+                    <rect x="70" y="168" width="60" height="32" rx="13"/>
+                    <rect x="76" y="200" width="24" height="92" rx="12"/><rect x="78" y="292" width="20" height="84" rx="10"/>
+                    <rect x="100" y="200" width="24" height="92" rx="12"/><rect x="102" y="292" width="20" height="84" rx="10"/>
+                    <path d="M74 376 h30 l8 18 h-46 z"/><path d="M98 376 h30 l8 18 h-46 z"/>
+                  </g>
                 </svg>
-                <p class="mt-5 font-display text-lg font-semibold text-white">De robot staat naast u op het podium.</p>
-                <p class="mt-2 text-sm text-muted">Embodied AI, live en tastbaar.</p>
               </div>
+              <div class="absolute left-4 top-4 rounded-full border border-stroke bg-night/70 px-3 py-1 text-[11px] font-medium text-muted backdrop-blur">Live op het podium</div>
             </div>
             <div class="mt-6 flex items-center gap-4">
-              <span class="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-amber to-amberlt text-night font-display font-bold text-lg">RN</span>
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-amberlt to-amberdk text-night font-display font-bold text-lg">RN</span>
               <div>
                 <div class="font-display font-semibold text-white">Roel Nentjes</div>
                 <div class="text-xs text-muted">Robotica-regisseur · 20+ jaar IT-management in de zorg</div>
@@ -467,13 +611,13 @@
     </div>
   </section>
 
-  <!-- ============== CONTACT ============== -->
-  <section id="contact" class="relative py-20 sm:py-28 border-t border-stroke/60 bg-gradient-to-b from-panel/30 to-night">
+  <!-- ============================== CONTACT ============================== -->
+  <section id="contact" class="relative py-20 sm:py-28 divider-glow bg-gradient-to-b from-panel/40 to-night">
     <div class="mx-auto max-w-8xl px-5 sm:px-8">
       <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
         <div class="lg:col-span-5 reveal">
-          <span class="font-display text-xs font-semibold uppercase tracking-[0.2em] text-amber">Contact</span>
-          <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight">
+          <span class="font-display text-xs font-semibold uppercase tracking-[0.22em] text-amber">Contact</span>
+          <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.08] tracking-tightest">
             Vraag een strategische <span class="text-gradient">verkenning</span> aan.
           </h2>
           <p class="mt-6 text-base leading-relaxed text-muted">
@@ -492,18 +636,18 @@
               <span class="grid h-10 w-10 place-items-center rounded-xl bg-panel border border-stroke text-amber">
                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.4-7-11a7 7 0 1114 0c0 5.6-7 11-7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5"/></svg>
               </span>
-              <span class="text-muted">Nederland · op locatie & remote</span>
+              <span class="text-muted">Nederland · op locatie &amp; remote</span>
             </div>
           </div>
 
           <div class="mt-8 rounded-2xl border border-stroke bg-panel/60 p-5">
-            <div class="flex items-center gap-2 text-emerald text-xs font-semibold uppercase tracking-wide">
-              <span class="h-1.5 w-1.5 rounded-full bg-emerald animate-pulse"></span> Wat u terugkrijgt
+            <div class="flex items-center gap-2 text-emerald text-xs font-semibold uppercase tracking-wide font-display">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald animate-pulseDot"></span> Wat u terugkrijgt
             </div>
             <ul class="mt-3 space-y-2 text-sm text-muted">
-              <li class="flex gap-2"><span class="text-emerald">✓</span> Een eerlijk beeld van haalbaarheid &amp; financiering</li>
-              <li class="flex gap-2"><span class="text-emerald">✓</span> De eerste neutralisatie-route voor úw casus</li>
-              <li class="flex gap-2"><span class="text-emerald">✓</span> Geen verkooppraatje — een bestuurlijk advies</li>
+              <li class="flex gap-2"><span class="text-emerald-400">✓</span> Een eerlijk beeld van haalbaarheid &amp; financiering</li>
+              <li class="flex gap-2"><span class="text-emerald-400">✓</span> De eerste neutralisatie-route voor úw casus</li>
+              <li class="flex gap-2"><span class="text-emerald-400">✓</span> Geen verkooppraatje — een bestuurlijk advies</li>
             </ul>
           </div>
         </div>
@@ -512,19 +656,19 @@
           <form id="contactForm" class="rounded-3xl border border-stroke bg-panel/60 p-6 sm:p-8 shadow-card backdrop-blur" novalidate>
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
-                <label class="block text-xs font-semibold text-muted mb-2" for="cf-name">Naam *</label>
-                <input id="cf-name" name="name" type="text" required class="w-full rounded-xl border border-stroke bg-night/70 px-4 py-3 text-sm text-ink placeholder-muted/60 outline-none transition focus:border-amber focus:ring-2 focus:ring-amber/20" placeholder="Uw naam" />
+                <label class="block text-xs font-semibold text-muted mb-2 font-display uppercase tracking-wide" for="cf-name">Naam *</label>
+                <input id="cf-name" name="name" type="text" required class="w-full rounded-xl border border-stroke bg-night/70 px-4 py-3 text-sm text-ink placeholder-faint outline-none transition focus:border-amber focus:ring-2 focus:ring-amber/20" placeholder="Uw naam" />
               </div>
               <div>
-                <label class="block text-xs font-semibold text-muted mb-2" for="cf-org">Organisatie</label>
-                <input id="cf-org" name="org" type="text" class="w-full rounded-xl border border-stroke bg-night/70 px-4 py-3 text-sm text-ink placeholder-muted/60 outline-none transition focus:border-amber focus:ring-2 focus:ring-amber/20" placeholder="Zorginstelling / verzekeraar" />
+                <label class="block text-xs font-semibold text-muted mb-2 font-display uppercase tracking-wide" for="cf-org">Organisatie</label>
+                <input id="cf-org" name="org" type="text" class="w-full rounded-xl border border-stroke bg-night/70 px-4 py-3 text-sm text-ink placeholder-faint outline-none transition focus:border-amber focus:ring-2 focus:ring-amber/20" placeholder="Zorginstelling / verzekeraar" />
               </div>
               <div>
-                <label class="block text-xs font-semibold text-muted mb-2" for="cf-email">E-mail *</label>
-                <input id="cf-email" name="email" type="email" required class="w-full rounded-xl border border-stroke bg-night/70 px-4 py-3 text-sm text-ink placeholder-muted/60 outline-none transition focus:border-amber focus:ring-2 focus:ring-amber/20" placeholder="naam@organisatie.nl" />
+                <label class="block text-xs font-semibold text-muted mb-2 font-display uppercase tracking-wide" for="cf-email">E-mail *</label>
+                <input id="cf-email" name="email" type="email" required class="w-full rounded-xl border border-stroke bg-night/70 px-4 py-3 text-sm text-ink placeholder-faint outline-none transition focus:border-amber focus:ring-2 focus:ring-amber/20" placeholder="naam@organisatie.nl" />
               </div>
               <div>
-                <label class="block text-xs font-semibold text-muted mb-2" for="cf-role">Rol</label>
+                <label class="block text-xs font-semibold text-muted mb-2 font-display uppercase tracking-wide" for="cf-role">Rol</label>
                 <select id="cf-role" name="role" class="w-full rounded-xl border border-stroke bg-night/70 px-4 py-3 text-sm text-ink outline-none transition focus:border-amber focus:ring-2 focus:ring-amber/20">
                   <option>Bestuurder / RvB</option>
                   <option>Zorgverzekeraar</option>
@@ -536,7 +680,7 @@
             </div>
 
             <div class="mt-5">
-              <label class="block text-xs font-semibold text-muted mb-2" for="cf-interest">Waar gaat het over?</label>
+              <label class="block text-xs font-semibold text-muted mb-2 font-display uppercase tracking-wide" for="cf-interest">Waar gaat het over?</label>
               <select id="cf-interest" name="interest" class="w-full rounded-xl border border-stroke bg-night/70 px-4 py-3 text-sm text-ink outline-none transition focus:border-amber focus:ring-2 focus:ring-amber/20">
                 <option value="">Selecteer een onderwerp…</option>
                 <option>Robot-Readiness Scan</option>
@@ -548,8 +692,8 @@
             </div>
 
             <div class="mt-5">
-              <label class="block text-xs font-semibold text-muted mb-2" for="cf-msg">Uw vraagstuk</label>
-              <textarea id="cf-msg" name="message" rows="4" class="w-full rounded-xl border border-stroke bg-night/70 px-4 py-3 text-sm text-ink placeholder-muted/60 outline-none transition focus:border-amber focus:ring-2 focus:ring-amber/20" placeholder="Vertel kort waar u tegenaan loopt…"></textarea>
+              <label class="block text-xs font-semibold text-muted mb-2 font-display uppercase tracking-wide" for="cf-msg">Uw vraagstuk</label>
+              <textarea id="cf-msg" name="message" rows="4" class="w-full rounded-xl border border-stroke bg-night/70 px-4 py-3 text-sm text-ink placeholder-faint outline-none transition focus:border-amber focus:ring-2 focus:ring-amber/20" placeholder="Vertel kort waar u tegenaan loopt…"></textarea>
             </div>
 
             <div class="mt-6 flex flex-col sm:flex-row items-center gap-4">
@@ -560,20 +704,20 @@
               <p class="text-xs text-muted">We reageren doorgaans binnen één werkdag.</p>
             </div>
 
-            <p id="formStatus" class="hidden mt-4 rounded-xl border border-emerald/30 bg-emerald/10 px-4 py-3 text-sm text-emerald"></p>
+            <p id="formStatus" class="hidden mt-4 rounded-xl px-4 py-3 text-sm"></p>
           </form>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============== FOOTER ============== -->
+  <!-- ============================== FOOTER ============================== -->
   <footer class="border-t border-stroke/60 bg-night">
     <div class="mx-auto max-w-8xl px-5 sm:px-8 py-14">
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div class="lg:col-span-2">
           <a href="#top" class="flex items-center gap-2.5">
-            <span class="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-amber to-amberlt text-night font-display font-bold text-lg">R</span>
+            <span class="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-amberlt to-amberdk text-night font-display font-bold text-lg">R</span>
             <span class="font-display text-xl font-bold tracking-tight"><span class="text-white">ROel</span><span class="amber-gradient">BOT</span></span>
           </a>
           <p class="mt-4 max-w-sm text-sm leading-relaxed text-muted">
@@ -581,7 +725,6 @@
             en harde IT-infrastructuur — zodat innovatie landt in plaats van strandt.
           </p>
         </div>
-
         <div>
           <div class="font-display text-sm font-semibold text-white">Navigatie</div>
           <ul class="mt-4 space-y-2.5 text-sm text-muted">
@@ -592,7 +735,6 @@
             <li><a href="#contact" class="hover:text-amber transition">Contact</a></li>
           </ul>
         </div>
-
         <div>
           <div class="font-display text-sm font-semibold text-white">Contact</div>
           <ul class="mt-4 space-y-2.5 text-sm text-muted">
@@ -602,7 +744,6 @@
           </ul>
         </div>
       </div>
-
       <div class="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-stroke/60 pt-7">
         <p class="text-xs text-muted">© <span id="year">2026</span> ROelBOT Advisory. Alle rechten voorbehouden.</p>
         <div class="flex items-center gap-5 text-xs text-muted">
@@ -614,34 +755,29 @@
     </div>
   </footer>
 
-  <!-- ============== LEAD-GEN MODAL ============== -->
-  <div id="leadModal" class="modal-overlay fixed inset-0 z-[60] hidden items-center justify-center bg-night/80 p-5 backdrop-blur-sm">
+  <!-- ============================== LEAD MODAL ============================== -->
+  <div id="leadModal" class="fixed inset-0 z-[70] hidden items-center justify-center bg-night/85 p-5 backdrop-blur-sm">
     <div class="relative w-full max-w-md rounded-3xl border border-stroke bg-panel p-7 shadow-card">
       <button id="modalClose" aria-label="Sluiten" class="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-lg border border-stroke text-muted hover:text-white transition">
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
       </button>
-      <span class="font-display text-xs font-semibold uppercase tracking-[0.2em] text-amber">Huren, leasen of proberen?</span>
+      <span class="font-display text-xs font-semibold uppercase tracking-[0.22em] text-amber">Huren, leasen of proberen?</span>
       <h3 id="modalTitle" class="mt-3 font-display text-xl font-semibold text-white">Use case</h3>
       <p class="mt-3 text-sm leading-relaxed text-muted">
-        Kies hoe u wilt instappen. We koppelen u aan de juiste leverancier én regelen de financierings- en
-        landingsroute, zodat u zonder risico kunt starten.
+        Kies hoe u wilt instappen. We koppelen u aan de juiste leverancier én regelen de financierings- en landingsroute,
+        zodat u zonder risico kunt starten.
       </p>
-
       <div class="mt-6 grid grid-cols-3 gap-2.5" id="leadOptions">
         <button class="lead-opt rounded-xl border border-stroke bg-night/60 px-3 py-4 text-center transition hover:border-amber/50" data-opt="Huren">
-          <div class="font-display text-sm font-semibold text-white">Huren</div>
-          <div class="mt-1 text-[11px] text-muted">Flexibel & kort</div>
+          <div class="font-display text-sm font-semibold text-white">Huren</div><div class="mt-1 text-[11px] text-muted">Flexibel &amp; kort</div>
         </button>
         <button class="lead-opt rounded-xl border border-stroke bg-night/60 px-3 py-4 text-center transition hover:border-amber/50" data-opt="Leasen">
-          <div class="font-display text-sm font-semibold text-white">Leasen</div>
-          <div class="mt-1 text-[11px] text-muted">Structureel</div>
+          <div class="font-display text-sm font-semibold text-white">Leasen</div><div class="mt-1 text-[11px] text-muted">Structureel</div>
         </button>
         <button class="lead-opt rounded-xl border border-stroke bg-night/60 px-3 py-4 text-center transition hover:border-amber/50" data-opt="Proberen">
-          <div class="font-display text-sm font-semibold text-white">Proberen</div>
-          <div class="mt-1 text-[11px] text-muted">Pilot</div>
+          <div class="font-display text-sm font-semibold text-white">Proberen</div><div class="mt-1 text-[11px] text-muted">Pilot</div>
         </button>
       </div>
-
       <a id="modalCta" href="#contact" class="mt-6 flex items-center justify-center gap-2 rounded-xl bg-amber px-5 py-3.5 text-sm font-semibold text-night shadow-glow transition hover:bg-amberlt">
         Plan een verkenning
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -649,148 +785,125 @@
     </div>
   </div>
 
-  <!-- ============== SCRIPTS ============== -->
+  <!-- ============================== SCRIPTS ============================== -->
   <script>
-    // ---------- Use case data ----------
     const CASES = [
-      {
-        n: 1, cat: 'revalidatie', catLabel: 'High-End Revalidatie',
-        title: `De 'Transformer': Hybride Rolstoel-Exoskelet`,
-        desc: `Een modulair robotic mobility device dat op lange afstanden functioneert als een compacte elektrische rolstoel, maar met één druk op de knop transformeert in een zelfbalancerend exoskelet waarmee de revalidant handsfree kan lopen en op ooghoogte communiceert.`,
-        prikkelTag: `De Domeinmuur`,
-        prikkel: `De gemeente (Wmo) betaalt de rolstoel voor transport. De verzekeraar (Zvw) betaalt de therapie. Niemand financiert de hybride transformer van €60k+, waardoor de patiënt passief blijft zitten en dure complicaties (doorligwonden, infecties) ontwikkelt.`,
-        neutralisatie: `Cross-domain financiering via een operational leasecontract. De Wmo betaalt het basistarief (equivalent rolstoel), de Zvw financiert de 'exoskelet-top-up' vanuit het transformatiebudget, omdat hiermee aantoonbaar zware medische complicatiekosten worden voorkomen.`
-      },
-      {
-        n: 2, cat: 'revalidatie', catLabel: 'Neurorevalidatie',
-        title: `Kliniek-naar-Thuis Onderlichaam Exoskelet`,
-        desc: `Intensieve robot-gestuurde looptraining (via Reinforcement Learning) binnen de kliniekmuren van centra zoals Merem of Reade. Zodra de patiënt stabiel is, gaat het exoskelet mee naar huis als huur-hulpmiddel gekoppeld aan monitoring op afstand.`,
-        prikkel: `Centra worden betaald per ligdag binnen de DBC. Als een patiënt door een exoskelet sneller herstelt en naar huis mag, verliest de kliniek direct omzet, terwijl de aanschaf van de robot zwaar op hun eigen budget drukt.`,
-        neutralisatie: `De kliniek declareert de hoogcomplexe opstartfase. Bij ontslag verschuift de financiering van het exoskelet direct naar het Hulpmiddelenbudget van de Zorgverzekeraar. De kliniek behoudt inkomsten via 'Remote Monitoring'-consulten.`
-      },
-      {
-        n: 3, cat: 'revalidatie', catLabel: 'Neurorevalidatie',
-        title: `Actieve Soft-Suit voor het Bovenlichaam`,
-        desc: `Een draagbaar, myo-elektrisch soft-exoskelet (zoals de Myomo MyoPro) dat restspieractiviteit uitleest en versterkt, waardoor patiënten met een verlamde arm na een CVA of dwarslaesie weer zelfstandig kunnen eten, grijpen en oefenen — thuis, tussen de therapiesessies door.`,
-        prikkelTag: `De Aanwezigheidsval`,
-        prikkel: `Ergo- en fysiotherapie wordt vergoed per face-to-face contactmoment. Eén-op-één behandelen is duur en schaars; het model beloont de aanwezigheid van de therapeut, niet de functionele winst van de patiënt. Zelfstandig thuis oefenen levert de praktijk niets op.`,
-        neutralisatie: `Blended care, aangedreven door Reinforcement Learning dat de oefenintensiteit thuis automatisch bijstuurt, verviervoudigt de capaciteit per therapeut. Gefinancierd uit IZA-transformatiegelden: één behandelaar begeleidt op afstand een veelvoud aan revalidanten, met betere uitkomsten en lagere kosten per traject.`
-      },
-      {
-        n: 4, cat: 'vvt', catLabel: 'Ouderenzorg & VVT',
-        title: `De Autonome Nachtronde-Surveillance`,
-        desc: `Inzet van mobiele robots (AMR's) uitgerust met thermische camera's en AI-geluidssensoren die zelfstandig door de gangen van verpleeghuizen surveilleren om incidenten of dwaalgedrag realtime te signaleren.`,
-        prikkel: `Nachtzorg slokt door onregelmatigheidstoeslagen en zware PNIL-inzet (zzp'ers) een onevenredig groot deel van het vaste Zorgzwaartepakket (ZZP-Wlz) op, waardoor er overdag geen budget overblijft voor persoonlijke zorg.`,
-        neutralisatie: `De robot vervangt geen menselijke warmte, maar neutraliseert de noodzaak voor kostbare externe beveiligers en zzp'ers in de nacht. Eén centrale slaapwacht kan dankzij de robotica drie locaties veilig bewaken.`
-      },
-      {
-        n: 5, cat: 'vvt', catLabel: 'Thuiszorg & Zvw',
-        title: `De 'Wachtlijst-Buster' bij Stabiele Cliënten`,
-        desc: `Inzet van sociale en ADL-ondersteunende robots bij chronische, stabiele cliënten voor structuur, medicatie-inname en activering, waardoor fysieke bezoeken drastisch omlaag kunnen.`,
-        prikkel: `Traditionele thuiszorg wordt betaald per geleverde minuut aan het bed. Efficiënter werken door de inzet van technologie leidt in het klassieke model direct tot omzetverlies voor de organisatie.`,
-        neutralisatie: `Zorgorganisaties halen hun omzetplafond nu niet door personeelstekort. Door robots in te zetten bij stabiele cliënten, komen schaarse handen vrij om direct de vastgelopen wachtlijst weg te werken. De omzet stijgt naar het maximum, de maatschappelijke druk daalt.`
-      },
-      {
-        n: 6, cat: 'vvt', catLabel: 'Thuiszorg & VPT',
-        title: `De Medicatierobot gekoppeld aan het VPT`,
-        desc: `Een slimme medicatiedispenser met camera-toezicht en alarmering op afstand die de juiste dosis op het juiste moment uitgeeft en de inname registreert, zodat een verpleegkundige alleen nog hoeft in te grijpen bij een afwijking.`,
-        prikkel: `Bij losse prestatiebekostiging is elk fysiek huisbezoek voor een medicatiecheck declarabel. Minder langskomen betekent in dat model direct minder omzet — efficiëntie wordt financieel afgestraft.`,
-        neutralisatie: `Binnen het Volledig Pakket Thuis (VPT) ontvangt de organisatie een vast lumpsum-budget per cliënt. Door de fysieke medicatiecontroles met circa 80% terug te brengen, stijgt de marge binnen datzelfde budget. De vrijgespeelde uren gaan naar cliënten die wél fysieke zorg nodig hebben.`
-      },
-      {
-        n: 7, cat: 'revalidatie', catLabel: 'Revalidatie & Bekostiging',
-        title: `Revalidatierobotica met Outcome-Based Financiering`,
-        desc: `Robot-geassisteerde looptraining en arm-handtherapie die door hoge, gestandaardiseerde herhaling (RL-gestuurd) de revalidatieduur meetbaar verkort, gekoppeld aan een bekostiging die afrekent op behaald functioneel resultaat in plaats van op duur.`,
-        prikkelTag: `De Volumeval`,
-        prikkel: `De klassieke bekostiging beloont volume en doorlooptijd, niet de snelheid van herstel. Een patiënt die door robotica sneller revalideert, levert minder declarabele behandelmomenten op — sneller beter is een verliespost.`,
-        neutralisatie: `Onderhandel een shared-savings-afspraak of herstelbonus met de zorgverzekeraar: een deel van de bespaarde behandeltijd en vermeden vervolgzorg vloeit terug naar het centrum. Sneller herstel wordt zo een verdienmodel in plaats van een gat in de begroting.`
-      },
-      {
-        n: 8, cat: 'ziekenhuis', catLabel: 'Ziekenhuislogistiek',
-        title: `Logistieke AMR's in het Ziekenhuis`,
-        desc: `Een vloot autonome transportrobots (AMR's) die linnen, maaltijden, medicatie en steriele goederen door het ziekenhuis verplaatst, met de lift mee, dag en nacht — zodat verpleegkundigen aan het bed blijven in plaats van op de gang te lopen.`,
-        prikkel: `Interne logistiek zit verstopt in de overhead en wordt zelden expliciet gemaakt. Verpleegkundigen lopen kilometers per dienst met karren; onzichtbaar in de DBC, maar peperduur in schaarse en dure handen.`,
-        neutralisatie: `AMR's verlagen de overheadkosten en halen verpleegkundigen weg bij sjouwwerk. De vrijgespeelde tijd verhoogt de medische productiviteit per DBC: meer behandelcapaciteit met dezelfde formatie, zonder dat er één zorgmedewerker bij hoeft.`
-      },
-      {
-        n: 9, cat: 'vvt', catLabel: 'Preventie & Domeinoverstijgend',
-        title: `Preventieve Robotica via Wmo-Beschikbaarheidssubsidie`,
-        desc: `Vroegtijdige inzet van activerende en signalerende robotica bij kwetsbare thuiswonende ouderen, zodat valincidenten, ondervoeding en vereenzaming worden voorkomen en mensen langer zelfredzaam blijven — buiten de duurdere Zvw- en Wlz-zorg.`,
-        prikkelTag: `De Domeinmuur`,
-        prikkel: `De gemeente (Wmo) draait op voor de investering in preventie, maar de besparing valt bij de zorgverzekeraar (Zvw) en de Wlz. Wie betaalt, plukt de vruchten niet — de klassieke schotten-impasse die preventie structureel blokkeert.`,
-        neutralisatie: `Doorbreek de muur tussen Wmo en Zvw met IZA-transformatiegelden en een regionale shared-savings-afspraak. De gezamenlijk bespaarde zorgkosten financieren met terugwerkende kracht de preventieve inzet — over de domeingrens heen, met gedeelde winst voor gemeente én verzekeraar.`
-      },
-      {
-        n: 10, cat: 'vvt', catLabel: 'Vastgoed & VVT',
-        title: `Desinfectierobots uit de Wooncomponent`,
-        desc: `Autonome UV-C- en sproeirobots die 's nachts gangen, sanitair en gemeenschappelijke ruimtes van het verpleeghuis reinigen en desinfecteren, met een aantoonbaar lager infectierisico en minder inzet van extern schoonmaakpersoneel.`,
-        prikkel: `Schoonmaak en hygiëne zitten in de wooncomponent en de vastgoedexploitatie, strikt gescheiden van het zorgbudget. Besparen op die post levert de zorgafdeling niets op, dus blijft de innovatie liggen ondanks de personeelskrapte.`,
-        neutralisatie: `Automatiseer de reiniging om de vastgoed- en facilitaire overhead te verlagen, en verschuif dat vrijgespeelde budget legitiem naar hands-on cliëntzorg. Schonere, veiligere gangen én meer handen aan het bed — gefinancierd uit dezelfde vierkante meter.`
-      },
-      {
-        n: 11, cat: 'vvt', catLabel: 'Thuiszorg & MPT',
-        title: `De ADL-Keukenrobot in het MPT`,
-        desc: `Een robotarm op het aanrecht die cliënten met een beperking helpt bij eten, drinken en eenvoudige maaltijdbereiding, waardoor de regie bij de cliënt blijft en arbeidsintensieve, laag-complexe zorguren teruglopen.`,
-        prikkel: `Hulp bij maaltijden is laag-complexe, zeer arbeidsintensieve zorg die schaars personeel opslokt. In het reguliere model is er geen ruimte of prikkel om deze handelingen te automatiseren — de uren moeten 'gemaakt' worden.`,
-        neutralisatie: `Binnen het Modulair Pakket Thuis (MPT) least de cliënt de robotarm uit het eigen techniek- en hulpmiddelenbudget. De laag-complexe zorguren dalen, de autonomie van de cliënt stijgt, en het schaarse personeel kan worden ingezet op de complexe zorg die écht mensenwerk is.`
-      },
-      {
-        n: 12, cat: 'ziekenhuis', catLabel: 'Ziekenhuis Backoffice',
-        title: `Robot-geassisteerde Lab- en Apotheekautomatisering`,
-        desc: `Robotica die repetitieve, foutgevoelige handelingen in het lab en de ziekenhuisapotheek automatiseert — van het klaarmaken van infusen en cytostatica tot het sorteren van monsters — 24/7, met constante kwaliteit en volledige traceerbaarheid.`,
-        prikkel: `Backoffice-efficiëntie is onzichtbaar in de zorgverkoop en levert geen directe DBC op. Investeren voelt als een pure kostenpost zonder opbrengst, dus blijft het achterwege — terwijl de kosten-per-handeling oplopen.`,
-        neutralisatie: `Automatiseer de backoffice om de kosten-per-handeling drastisch te verlagen. Dat geeft het ziekenhuis een scherpere prijs en een sterkere onderhandelingspositie richting zorgverzekeraars — winst die wordt geboekt zónder te snijden in zorgpersoneel.`
-      },
-      {
-        n: 13, cat: 'ziekenhuis', catLabel: 'GGZ & Crisiszorg',
-        title: `De 'De-escalatie'-Robot in de GGZ`,
-        desc: `Een kalmerende, interactieve sociale robot die in crisissituaties prikkels reguleert, afleiding en structuur biedt en zo agressie helpt de-escaleren — waardoor separatie en dwang minder vaak nodig zijn.`,
-        prikkelTag: `De Verzuimspiraal`,
-        prikkel: `Separatie en crisisopvang zijn extreem arbeidsintensief en leiden tot agressie-gerelateerd ziekteverzuim onder personeel. De reguliere bekostiging biedt geen ruimte voor de preventieve technologie die deze spiraal kan doorbreken.`,
-        neutralisatie: `Zet NZa-Innovatiebekostiging in voor crisis-reducerende robotica. Minder dure separatie-uren en minder agressie-gerelateerd verzuim maken de businesscase rond — betere, menswaardigere zorg én structureel lagere kosten.`
-      },
+      { n:1, cat:'revalidatie', catLabel:'High-End Revalidatie',
+        title:`De 'Transformer': Hybride Rolstoel-Exoskelet`,
+        desc:`Een modulair robotic mobility device dat op lange afstanden functioneert als een compacte elektrische rolstoel, maar met één druk op de knop transformeert in een zelfbalancerend exoskelet waarmee de revalidant handsfree kan lopen en op ooghoogte communiceert.`,
+        prikkelTag:`De Domeinmuur`,
+        prikkel:`De gemeente (Wmo) betaalt de rolstoel voor transport. De verzekeraar (Zvw) betaalt de therapie. Niemand financiert de hybride transformer van €60k+, waardoor de patiënt passief blijft zitten en dure complicaties (doorligwonden, infecties) ontwikkelt.`,
+        neutralisatie:`Cross-domain financiering via een operational leasecontract. De Wmo betaalt het basistarief (equivalent rolstoel), de Zvw financiert de 'exoskelet-top-up' vanuit het transformatiebudget, omdat hiermee aantoonbaar zware medische complicatiekosten worden voorkomen.` },
+
+      { n:2, cat:'revalidatie', catLabel:'Neurorevalidatie',
+        title:`Kliniek-naar-Thuis Onderlichaam Exoskelet`,
+        desc:`Intensieve robot-gestuurde looptraining (via Reinforcement Learning) binnen de kliniekmuren van centra zoals Merem of Reade. Zodra de patiënt stabiel is, gaat het exoskelet mee naar huis als huur-hulpmiddel gekoppeld aan monitoring op afstand.`,
+        prikkel:`Centra worden betaald per ligdag binnen de DBC. Als een patiënt door een exoskelet sneller herstelt en naar huis mag, verliest de kliniek direct omzet, terwijl de aanschaf van de robot zwaar op hun eigen budget drukt.`,
+        neutralisatie:`De kliniek declareert de hoogcomplexe opstartfase. Bij ontslag verschuift de financiering van het exoskelet direct naar het Hulpmiddelenbudget van de Zorgverzekeraar (Zvw). De kliniek behoudt inkomsten via 'Remote Monitoring'-consulten.` },
+
+      { n:3, cat:'revalidatie', catLabel:'Neurorevalidatie',
+        title:`Actieve Soft-Suit voor het Bovenlichaam`,
+        desc:`Een draagbaar, myo-elektrisch soft-exoskelet (zoals de Myomo MyoPro) dat restspieractiviteit uitleest en versterkt, waardoor patiënten met een verlamde arm na een CVA of dwarslaesie weer zelfstandig kunnen eten, grijpen en oefenen — thuis, tussen de therapiesessies door.`,
+        prikkelTag:`De Aanwezigheidsval`,
+        prikkel:`Ergo- en fysiotherapie wordt vergoed per face-to-face contactmoment. Eén-op-één behandelen is duur en schaars; het model beloont de aanwezigheid van de therapeut, niet de functionele winst van de patiënt. Zelfstandig thuis oefenen levert de praktijk niets op.`,
+        neutralisatie:`Blended care, aangedreven door Reinforcement Learning dat de oefenintensiteit thuis automatisch bijstuurt, verviervoudigt de capaciteit per therapeut. Gefinancierd uit IZA-transformatiegelden: één behandelaar begeleidt op afstand een veelvoud aan revalidanten, met betere uitkomsten en lagere kosten per traject.` },
+
+      { n:4, cat:'ouderenzorg', catLabel:'Ouderenzorg & VVT',
+        title:`De Autonome Nachtronde-Surveillance`,
+        desc:`Inzet van mobiele robots (AMR's) uitgerust met thermische camera's en AI-geluidssensoren die zelfstandig door de gangen van verpleeghuizen surveilleren om incidenten of dwaalgedrag realtime te signaleren.`,
+        prikkel:`Nachtzorg slokt door onregelmatigheidstoeslagen en zware PNIL-inzet (zzp'ers) een onevenredig groot deel van het vaste Zorgzwaartepakket (ZZP-Wlz) op, waardoor er overdag geen budget overblijft voor persoonlijke zorg.`,
+        neutralisatie:`De robot vervangt geen menselijke warmte, maar neutraliseert de noodzaak voor kostbare externe beveiligers en zzp'ers in de nacht binnen het vaste Wlz-budget. Eén centrale slaapwacht kan dankzij de robotica meerdere locaties veilig bewaken.` },
+
+      { n:5, cat:'ouderenzorg', catLabel:'Thuiszorg & Zvw',
+        title:`De 'Wachtlijst-Buster' in de Thuiszorg`,
+        desc:`Inzet van sociale en ADL-ondersteunende robots bij chronische, stabiele cliënten voor structuur, medicatie-inname en activering, waardoor fysieke bezoeken drastisch omlaag kunnen.`,
+        prikkel:`Traditionele thuiszorg wordt betaald per geleverde minuut aan het bed. Efficiënter werken door de inzet van technologie leidt in het klassieke model direct tot omzetverlies voor de organisatie.`,
+        neutralisatie:`Zorgorganisaties halen hun omzetplafond nu niet door personeelstekort. Door robots in te zetten bij stabiele cliënten, komen schaarse handen vrij om direct de vastgelopen wachtlijst weg te werken. De omzet stijgt naar het maximum, de maatschappelijke druk daalt.` },
+
+      { n:6, cat:'ouderenzorg', catLabel:'Thuiszorg & VPT',
+        title:`De Medicatierobot gekoppeld aan het VPT`,
+        desc:`Een slimme medicatiedispenser met camera-toezicht en alarmering op afstand die de juiste dosis op het juiste moment uitgeeft en de inname registreert, zodat een verpleegkundige alleen nog hoeft in te grijpen bij een afwijking.`,
+        prikkel:`Bij losse prestatiebekostiging is elk fysiek huisbezoek voor een medicatiecheck declarabel. Minder langskomen betekent in dat model direct minder omzet — efficiëntie wordt financieel afgestraft.`,
+        neutralisatie:`Binnen het Volledig Pakket Thuis (VPT) ontvangt de organisatie een vast lumpsum-budget per cliënt. Door de fysieke medicatiecontroles met circa 80% terug te brengen, stijgt de marge binnen datzelfde budget. De vrijgespeelde uren gaan naar cliënten die wél fysieke zorg nodig hebben.` },
+
+      { n:7, cat:'revalidatie', catLabel:'Revalidatie & Bekostiging',
+        title:`Revalidatierobotica met Outcome-Based Financiering`,
+        desc:`Robot-geassisteerde looptraining en arm-handtherapie die door hoge, gestandaardiseerde herhaling (RL-gestuurd) de revalidatieduur meetbaar verkort, gekoppeld aan een bekostiging die afrekent op behaald functioneel resultaat in plaats van op duur.`,
+        prikkelTag:`De Volumeval`,
+        prikkel:`De klassieke bekostiging beloont volume en doorlooptijd, niet de snelheid van herstel. Een patiënt die door robotica sneller revalideert, levert minder declarabele behandelmomenten op — sneller beter is een verliespost.`,
+        neutralisatie:`Onderhandel een shared-savings-afspraak of herstelbonus met de zorgverzekeraar: een deel van de bespaarde behandeltijd en vermeden vervolgzorg vloeit terug naar het centrum. Sneller herstel wordt zo een verdienmodel in plaats van een gat in de begroting.` },
+
+      { n:8, cat:'ziekenhuis', catLabel:'Ziekenhuislogistiek',
+        title:`Logistieke AMR's in het Ziekenhuis`,
+        desc:`Een vloot autonome transportrobots (AMR's) die linnen, maaltijden, medicatie en steriele goederen door het ziekenhuis verplaatst, met de lift mee, dag en nacht — zodat verpleegkundigen aan het bed blijven in plaats van op de gang te lopen.`,
+        prikkel:`Interne logistiek zit verstopt in de overhead en wordt zelden expliciet gemaakt. Verpleegkundigen lopen kilometers per dienst met karren; onzichtbaar in de DBC, maar peperduur in schaarse en dure handen.`,
+        neutralisatie:`AMR's verlagen de overheadkosten en halen verpleegkundigen weg bij sjouwwerk. De vrijgespeelde tijd verhoogt de medische productiviteit per DBC: meer behandelcapaciteit met dezelfde formatie, zonder dat er één zorgmedewerker bij hoeft.` },
+
+      { n:9, cat:'ouderenzorg', catLabel:'Preventie & Domeinoverstijgend',
+        title:`Preventieve Robotica via Wmo-Beschikbaarheidssubsidie`,
+        desc:`Vroegtijdige inzet van activerende en signalerende robotica bij kwetsbare thuiswonende ouderen, zodat valincidenten, ondervoeding en vereenzaming worden voorkomen en mensen langer zelfredzaam blijven — buiten de duurdere Zvw- en Wlz-zorg.`,
+        prikkelTag:`De Domeinmuur`,
+        prikkel:`De gemeente (Wmo) draait op voor de investering in preventie, maar de besparing valt bij de zorgverzekeraar (Zvw) en de Wlz. Wie betaalt, plukt de vruchten niet — de klassieke schotten-impasse die preventie structureel blokkeert.`,
+        neutralisatie:`Doorbreek de muur tussen Wmo en Zvw met IZA-transformatiegelden en een regionale shared-savings-afspraak. De gezamenlijk bespaarde zorgkosten financieren met terugwerkende kracht de preventieve inzet — over de domeingrens heen, met gedeelde winst voor gemeente én verzekeraar.` },
+
+      { n:10, cat:'ouderenzorg', catLabel:'Vastgoed & VVT',
+        title:`Desinfectierobots uit de Wooncomponent`,
+        desc:`Autonome UV-C- en sproeirobots die 's nachts gangen, sanitair en gemeenschappelijke ruimtes van het verpleeghuis reinigen en desinfecteren, met een aantoonbaar lager infectierisico en minder inzet van extern schoonmaakpersoneel.`,
+        prikkel:`Schoonmaak en hygiëne zitten in de wooncomponent en de vastgoedexploitatie, strikt gescheiden van het zorgbudget. Besparen op die post levert de zorgafdeling niets op, dus blijft de innovatie liggen ondanks de personeelskrapte.`,
+        neutralisatie:`Automatiseer de reiniging om de vastgoed- en facilitaire overhead te verlagen, en verschuif dat vrijgespeelde budget legitiem naar hands-on cliëntzorg. Schonere, veiligere gangen én meer handen aan het bed — gefinancierd uit dezelfde vierkante meter.` },
+
+      { n:11, cat:'ouderenzorg', catLabel:'Thuiszorg & MPT',
+        title:`De ADL-Keukenrobot in het MPT`,
+        desc:`Een robotarm op het aanrecht die cliënten met een beperking helpt bij eten, drinken en eenvoudige maaltijdbereiding, waardoor de regie bij de cliënt blijft en arbeidsintensieve, laag-complexe zorguren teruglopen.`,
+        prikkel:`Hulp bij maaltijden is laag-complexe, zeer arbeidsintensieve zorg die schaars personeel opslokt. In het reguliere model is er geen ruimte of prikkel om deze handelingen te automatiseren — de uren moeten 'gemaakt' worden.`,
+        neutralisatie:`Binnen het Modulair Pakket Thuis (MPT) least de cliënt de robotarm uit het eigen techniek- en hulpmiddelenbudget. De laag-complexe zorguren dalen, de autonomie van de cliënt stijgt, en het schaarse personeel kan worden ingezet op de complexe zorg die écht mensenwerk is.` },
+
+      { n:12, cat:'ziekenhuis', catLabel:'Ziekenhuis Backoffice',
+        title:`Robot-geassisteerde Lab- en Apotheekautomatisering`,
+        desc:`Robotica die repetitieve, foutgevoelige handelingen in het lab en de ziekenhuisapotheek automatiseert — van het klaarmaken van infusen en cytostatica tot het sorteren van monsters — 24/7, met constante kwaliteit en volledige traceerbaarheid.`,
+        prikkel:`Backoffice-efficiëntie is onzichtbaar in de zorgverkoop en levert geen directe DBC op. Investeren voelt als een pure kostenpost zonder opbrengst, dus blijft het achterwege — terwijl de kosten-per-handeling oplopen.`,
+        neutralisatie:`Automatiseer de backoffice om de kosten-per-handeling drastisch te verlagen. Dat geeft het ziekenhuis een scherpere prijs en een sterkere onderhandelingspositie richting zorgverzekeraars — winst die wordt geboekt zónder te snijden in zorgpersoneel.` },
+
+      { n:13, cat:'ziekenhuis', catLabel:'GGZ & Crisiszorg',
+        title:`De "De-escalatie" Robot in de GGZ`,
+        desc:`Een kalmerende, interactieve sociale robot die in crisissituaties prikkels reguleert, afleiding en structuur biedt en zo agressie helpt de-escaleren — waardoor separatie en dwang minder vaak nodig zijn.`,
+        prikkelTag:`De Verzuimspiraal`,
+        prikkel:`Separatie en crisisopvang zijn extreem arbeidsintensief en leiden tot agressie-gerelateerd ziekteverzuim onder personeel. De reguliere bekostiging biedt geen ruimte voor de preventieve technologie die deze spiraal kan doorbreken.`,
+        neutralisatie:`Zet NZa-Innovatiebekostiging in voor crisis-reducerende robotica. Minder dure separatie-uren en minder agressie-gerelateerd verzuim maken de businesscase rond — betere, menswaardigere zorg én structureel lagere kosten.` },
     ];
 
-    // ---------- Render cards ----------
     const grid = document.getElementById('caseGrid');
-    function cardHTML(c) {
+    function esc(s){ return String(s).replace(/"/g,'&quot;'); }
+    function cardHTML(c){
       return `
       <article class="case-card group reveal in card-hover flex flex-col rounded-3xl border border-stroke bg-panel/60 p-6 shadow-card" data-cat="${c.cat}">
         <div class="flex items-center justify-between">
-          <span class="inline-flex items-center gap-1.5 rounded-md border border-amber/20 bg-amber/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-amber font-mono">${c.catLabel}</span>
-          <span class="font-mono text-xs font-medium text-stroke group-hover:text-amber transition-colors">Case #${String(c.n).padStart(2,'0')}</span>
+          <span class="inline-flex items-center rounded-md border border-amber/20 bg-amber/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-amber font-display">${c.catLabel}</span>
+          <span class="font-display text-xs font-medium text-faint group-hover:text-amber transition-colors">Case #${String(c.n).padStart(2,'0')}</span>
         </div>
-
         <h3 class="mt-4 font-display text-lg font-semibold leading-snug text-white">${c.title}</h3>
         <p class="mt-2.5 text-sm leading-relaxed text-muted">${c.desc}</p>
-
-        <div class="mt-5 space-y-2.5 acc-wrap">
+        <div class="mt-5 space-y-2.5">
           <div class="acc-item rounded-2xl border border-rose/25 bg-rose/[0.06]">
             <button class="acc-trigger flex w-full items-center justify-between gap-3 px-4 py-3 text-left">
-              <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-rose font-mono">
+              <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-rose-400 font-display">
                 <span class="h-1.5 w-1.5 rounded-full bg-rose"></span> De Perverse Prikkel${c.prikkelTag ? ` <span class="text-rose/70 normal-case">(${c.prikkelTag})</span>` : ''}
               </span>
-              <span class="acc-chevron text-rose transition-transform">
-                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
-              </span>
+              <span class="acc-chevron text-rose transition-transform"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
             </button>
             <div class="acc-body"><p class="px-4 pb-4 text-sm leading-relaxed text-muted">${c.prikkel}</p></div>
           </div>
-
           <div class="acc-item rounded-2xl border border-emerald/25 bg-emerald/[0.06]">
             <button class="acc-trigger flex w-full items-center justify-between gap-3 px-4 py-3 text-left">
-              <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-emerald font-mono">
+              <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-emerald-400 font-display">
                 <span class="h-1.5 w-1.5 rounded-full bg-emerald"></span> De ROelBOT Neutralisatie
               </span>
-              <span class="acc-chevron text-emerald transition-transform">
-                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
-              </span>
+              <span class="acc-chevron text-emerald transition-transform"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
             </button>
             <div class="acc-body"><p class="px-4 pb-4 text-sm leading-relaxed text-muted">${c.neutralisatie}</p></div>
           </div>
         </div>
-
-        <button class="lead-trigger mt-5 inline-flex items-center justify-center gap-2 rounded-xl border border-amber/40 bg-amber/10 px-4 py-3 text-sm font-semibold text-amber transition hover:bg-amber hover:text-night" data-title="${c.title.replace(/"/g,'&quot;')}">
+        <button class="lead-trigger mt-5 inline-flex items-center justify-center gap-2 rounded-xl border border-amber/40 bg-amber/10 px-4 py-3 text-sm font-semibold text-amber transition hover:bg-amber hover:text-night" data-title="${esc(c.title)}">
           Huren, leasen of proberen?
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
@@ -798,126 +911,85 @@
     }
     grid.innerHTML = CASES.map(cardHTML).join('');
 
-    // ---------- Accordions ----------
+    // Accordions
     grid.addEventListener('click', (e) => {
-      const trigger = e.target.closest('.acc-trigger');
-      if (trigger) {
-        trigger.closest('.acc-item').classList.toggle('open');
-      }
+      const t = e.target.closest('.acc-trigger');
+      if (t) t.closest('.acc-item').classList.toggle('open');
     });
 
-    // ---------- Filters ----------
+    // Filters
     const filterBar = document.getElementById('filterBar');
     const noResults = document.getElementById('noResults');
     filterBar.addEventListener('click', (e) => {
-      const btn = e.target.closest('.filter-btn');
-      if (!btn) return;
-      filterBar.querySelectorAll('.filter-btn').forEach(b => {
-        b.classList.remove('active');
-        b.classList.add('text-muted');
-        b.classList.remove('text-ink');
-      });
-      btn.classList.add('active');
-      btn.classList.remove('text-muted');
-      const f = btn.dataset.filter;
-      let visible = 0;
+      const btn = e.target.closest('.filter-btn'); if (!btn) return;
+      filterBar.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('active'); b.classList.add('text-muted'); });
+      btn.classList.add('active'); btn.classList.remove('text-muted');
+      const f = btn.dataset.filter; let visible = 0;
       grid.querySelectorAll('.case-card').forEach(card => {
         const show = (f === 'all' || card.dataset.cat === f);
-        card.style.display = show ? '' : 'none';
-        if (show) visible++;
+        card.style.display = show ? '' : 'none'; if (show) visible++;
       });
       noResults.classList.toggle('hidden', visible > 0);
     });
 
-    // ---------- Lead-gen modal ----------
+    // Lead modal
     const modal = document.getElementById('leadModal');
     const modalTitle = document.getElementById('modalTitle');
-    const modalCta = document.getElementById('modalCta');
     let chosenOpt = '';
-    function openModal(title) {
-      modalTitle.textContent = title;
-      chosenOpt = '';
-      document.querySelectorAll('.lead-opt').forEach(o => o.classList.remove('border-amber','bg-amber/10'));
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.classList.add('no-scroll');
-    }
-    function closeModal() {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.classList.remove('no-scroll');
-    }
-    grid.addEventListener('click', (e) => {
-      const lead = e.target.closest('.lead-trigger');
-      if (lead) openModal(lead.dataset.title);
-    });
+    function openModal(title){ modalTitle.textContent = title; chosenOpt=''; document.querySelectorAll('.lead-opt').forEach(o=>o.classList.remove('border-amber','bg-amber/10')); modal.classList.remove('hidden'); modal.classList.add('flex'); document.body.classList.add('no-scroll'); }
+    function closeModal(){ modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.classList.remove('no-scroll'); }
+    grid.addEventListener('click', (e) => { const l = e.target.closest('.lead-trigger'); if (l) openModal(l.dataset.title); });
     document.getElementById('modalClose').addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
     document.getElementById('leadOptions').addEventListener('click', (e) => {
-      const opt = e.target.closest('.lead-opt');
-      if (!opt) return;
-      document.querySelectorAll('.lead-opt').forEach(o => o.classList.remove('border-amber','bg-amber/10'));
-      opt.classList.add('border-amber','bg-amber/10');
-      chosenOpt = opt.dataset.opt;
+      const opt = e.target.closest('.lead-opt'); if (!opt) return;
+      document.querySelectorAll('.lead-opt').forEach(o=>o.classList.remove('border-amber','bg-amber/10'));
+      opt.classList.add('border-amber','bg-amber/10'); chosenOpt = opt.dataset.opt;
     });
-    modalCta.addEventListener('click', () => {
-      const interest = document.getElementById('cf-interest');
-      if (interest) interest.value = 'Een specifieke use case (huren / leasen / proberen)';
-      const msg = document.getElementById('cf-msg');
-      if (msg) msg.value = `Interesse in: ${modalTitle.textContent}${chosenOpt ? ' — voorkeur: ' + chosenOpt : ''}.`;
+    document.getElementById('modalCta').addEventListener('click', () => {
+      const interest = document.getElementById('cf-interest'); if (interest) interest.value = 'Een specifieke use case (huren / leasen / proberen)';
+      const msg = document.getElementById('cf-msg'); if (msg) msg.value = `Interesse in: ${modalTitle.textContent}${chosenOpt ? ' — voorkeur: ' + chosenOpt : ''}.`;
       closeModal();
     });
 
-    // ---------- Mobile menu ----------
+    // Mobile menu
     const navToggle = document.getElementById('navToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     const iconOpen = document.getElementById('iconOpen');
     const iconClose = document.getElementById('iconClose');
-    function toggleMenu(force) {
-      const willOpen = force !== undefined ? force : mobileMenu.classList.contains('hidden');
-      mobileMenu.classList.toggle('hidden', !willOpen);
-      iconOpen.classList.toggle('hidden', willOpen);
-      iconClose.classList.toggle('hidden', !willOpen);
-    }
+    function toggleMenu(force){ const willOpen = force !== undefined ? force : mobileMenu.classList.contains('hidden'); mobileMenu.classList.toggle('hidden', !willOpen); iconOpen.classList.toggle('hidden', willOpen); iconClose.classList.toggle('hidden', !willOpen); }
     navToggle.addEventListener('click', () => toggleMenu());
     document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => toggleMenu(false)));
 
-    // ---------- Header scroll state ----------
-    const header = document.querySelector('[data-header]');
-    const onScroll = () => {
-      if (window.scrollY > 20) header.classList.add('shadow-2xl');
-      else header.classList.remove('shadow-2xl');
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    // Header scroll state
+    const nav = document.querySelector('[data-nav]');
+    const onScroll = () => { if (window.scrollY > 16) { nav.classList.add('bg-night/85','shadow-2xl'); } else { nav.classList.remove('bg-night/85','shadow-2xl'); } };
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-    // ---------- Reveal on scroll ----------
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    // Reveal on scroll (with fallback)
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => { entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }); }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    }
 
-    // ---------- Contact form ----------
+    // Contact form
     const form = document.getElementById('contactForm');
     const status = document.getElementById('formStatus');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('cf-name');
-      const email = document.getElementById('cf-email');
+      const name = document.getElementById('cf-name'), email = document.getElementById('cf-email');
       if (!name.value.trim() || !email.value.trim() || !email.checkValidity()) {
         status.className = 'mt-4 rounded-xl border border-rose/30 bg-rose/10 px-4 py-3 text-sm text-rose';
-        status.textContent = 'Vul a.u.b. uw naam en een geldig e-mailadres in.';
-        status.classList.remove('hidden');
-        return;
+        status.textContent = 'Vul a.u.b. uw naam en een geldig e-mailadres in.'; status.classList.remove('hidden'); return;
       }
       status.className = 'mt-4 rounded-xl border border-emerald/30 bg-emerald/10 px-4 py-3 text-sm text-emerald';
       status.textContent = `Dank ${name.value.trim()}! Uw aanvraag is genoteerd. We nemen binnen één werkdag contact op.`;
-      status.classList.remove('hidden');
-      form.reset();
+      status.classList.remove('hidden'); form.reset();
     });
 
-    // ---------- Year ----------
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
