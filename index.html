@@ -164,19 +164,13 @@ h2.title { font-size: clamp(30px, 4.5vw, 46px); margin-top: 18px; }
 .numbered p { font-size: 15px; color: var(--text-secondary); line-height: 1.55; }
 .numbered strong { color: var(--text); font-weight: 600; }
 
-/* ---- LANDINGSBAAN DIAGRAM ---- */
-.diagram { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: stretch; margin-top: 12px; }
-@media (max-width: 800px) { .diagram { grid-template-columns: 1fr; } }
-.lane { background: var(--bg); border-radius: var(--radius); box-shadow: var(--card-shadow); padding: 20px; }
-.lane.mid { background: var(--green-light); box-shadow: none; border: 1px solid rgba(52,199,89,0.3); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-width: 170px; }
-.lane .eyebrow { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary); }
-.lane .eyebrow.g { color: var(--green-text); }
-.lane h4 { font-size: 17px; margin-top: 7px; }
-.lane ul { list-style: none; margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
-.lane li { font-size: 14px; color: var(--text-secondary); }
-.lane.mid .mark { width: 40px; height: 40px; border-radius: 11px; background: linear-gradient(135deg, var(--green-brand-1), var(--green-brand-2)); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; }
-.lane.mid h4 { color: var(--green-text); margin-top: 10px; }
-.lane.mid .sub { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+/* ---- LANDINGSBAAN (apple-card rijen) ---- */
+.apple-card { background: var(--bg); border-radius: var(--radius); box-shadow: var(--card-shadow); overflow: hidden; max-width: 780px; margin-top: 8px; }
+.apple-card-row { display: flex; align-items: flex-start; gap: 16px; padding: 14px 18px; border-bottom: 0.5px solid var(--separator); }
+.apple-card-row:last-child { border-bottom: none; }
+.apple-card-label { font-size: 13px; font-weight: 600; color: var(--text); min-width: 150px; flex-shrink: 0; }
+.apple-card-value { font-size: 14px; color: var(--text-secondary); flex: 1; line-height: 1.5; }
+@media (max-width: 600px) { .apple-card-row { flex-direction: column; gap: 4px; } .apple-card-label { min-width: 0; } }
 .compliance { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .compliance .clabel { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary); margin-right: 4px; }
 .pill { font-size: 13px; padding: 5px 12px; border-radius: 9px; background: var(--gray-100); color: var(--text-secondary); font-weight: 500; }
@@ -267,7 +261,7 @@ h2.title { font-size: clamp(30px, 4.5vw, 46px); margin-top: 18px; }
   <div class="wrap topbar-inner">
     <a href="#top" class="logo">
       <span class="icon">R</span>
-      <span>ROel<span class="bot">BOT</span></span>
+      <span>RO<span class="bot">el</span>BOT</span>
     </a>
     <nav class="nav">
       <a href="#systeemfout">De Systeemfout</a>
@@ -301,9 +295,8 @@ h2.title { font-size: clamp(30px, 4.5vw, 46px); margin-top: 18px; }
     <h1>De markt daagt uit.<br><span class="accent-green">Wij leveren de landing.</span></h1>
     <p class="lead">
       Wat als een robot geen gadget is, maar de <strong>fysieke executielaag van AI</strong>? Embodied AI, aangedreven
-      door Reinforcement Learning. Ik heb niet alle antwoorden — wel het sterke vermoeden dat we het anders moeten durven
-      doen. Want als we blijven doen wat we deden, houden we wat we hadden. Ik ben op zoek naar mensen die dat met me
-      willen onderzoeken.
+      door Reinforcement Learning. Geen kant-en-klare antwoorden — wel de overtuiging dat het anders moet. Want als we
+      blijven doen wat we deden, houden we wat we hadden. ROelBOT zoekt bestuurders die dat durven onderzoeken.
     </p>
     <div class="hero-actions">
       <a href="#oplossingen" class="btn btn-primary">
@@ -329,15 +322,14 @@ h2.title { font-size: clamp(30px, 4.5vw, 46px); margin-top: 18px; }
       <span class="kicker">Een ongemakkelijke vraag</span>
       <h2 class="title">Hebben we de innovatie mee <span class="accent-green">uitbesteed</span>?</h2>
       <p class="lead">
-        Ik vraag me steeds vaker af waarom zoveel mooie pilots stranden. Toen de zorg haar IT uitbesteedde, loste dat
-        een echt probleem op — maar het maakte innovatie van binnenuit ook een stuk moeilijker. En misschien ligt het
-        niet eens alleen aan de IT.
+        Waarom stranden zoveel mooie pilots? Toen de zorg haar IT uitbesteedde, loste dat een echt probleem op — maar
+        het maakte innovatie van binnenuit ook een stuk moeilijker. En misschien ligt het niet eens alleen aan de IT.
       </p>
     </div>
     <ol class="numbered">
       <li><span class="n">01</span><p>Het waren vaak juist de mensen van de ICT die de innovatie naar binnen brachten. Ze houden van techniek, van uitproberen. Nu dat werk op afstand zit, bij een externe partij, mis je dat enthousiasme van binnenuit — en dat merk je.</p></li>
-      <li><span class="n">02</span><p>Zo'n uitbesteed contract is gemaakt voor rust en stabiliteit, niet voor experiment. Een robot op Linux of ROS past daar niet zomaar in. Die voorzichtigheid snap ik eerlijk gezegd wel — al remt ze.</p></li>
-      <li><span class="n">03</span><p>En het ligt niet alleen aan de IT. Ook de security officer en de mensen van kwaliteit en financiën remmen soms — met argumenten over beveiliging of kosten die weinig met échte ICT-kennis te maken hebben. Ik vraag me af: hoe komen we daar samen doorheen?</p></li>
+      <li><span class="n">02</span><p>Zo'n uitbesteed contract is gemaakt voor rust en stabiliteit, niet voor experiment. Een robot op Linux of ROS past daar niet zomaar in. Begrijpelijke voorzichtigheid — al remt ze.</p></li>
+      <li><span class="n">03</span><p>En het ligt niet alleen aan de IT. Ook de security officer en de mensen van kwaliteit en financiën remmen soms — met argumenten over beveiliging of kosten die weinig met échte ICT-kennis te maken hebben. De vraag is: hoe komen we daar samen doorheen?</p></li>
     </ol>
   </div>
 </section>
@@ -347,30 +339,17 @@ h2.title { font-size: clamp(30px, 4.5vw, 46px); margin-top: 18px; }
   <div class="wrap">
     <div class="section-head">
       <span class="kicker">De Technische Landingsbaan</span>
-      <h2 class="title">Misschien zit mijn plek juist <span class="accent-green">in dat gat</span>.</h2>
+      <h2 class="title">Misschien ligt de oplossing juist <span class="accent-green">in dat gat</span>.</h2>
       <p class="lead">
-        Niet als de man met de antwoorden — die heb ik niet allemaal. Wel als iemand die de taal van het bestuur, de
-        leverancier én de IT-partij een beetje spreekt, en het gesprek durft te voeren dat nu vaak niemand voert.
-        Zullen we samen kijken of die robot wél veilig kan landen?
+        Geen partij met alle antwoorden, maar één die de taal van het bestuur, de leverancier én de IT-partij spreekt —
+        en het gesprek voert dat nu vaak niemand voert. Zullen we samen kijken of die robot wél veilig kan landen?
       </p>
     </div>
 
-    <div class="diagram">
-      <div class="lane">
-        <div class="eyebrow">Beheerd door externe MSP</div>
-        <h4>Zorgnetwerk &amp; EPD</h4>
-        <ul><li>Strikte commodity-SLA</li><li>Werkplek, Outlook, EPD</li><li>Statisch &amp; dichtgetimmerd</li></ul>
-      </div>
-      <div class="lane mid">
-        <div class="mark">R</div>
-        <h4>ROelBOT</h4>
-        <div class="sub">Regie · Firewall · Gateway</div>
-      </div>
-      <div class="lane">
-        <div class="eyebrow g">Nieuw &amp; geïsoleerd</div>
-        <h4>Robotica-VLAN</h4>
-        <ul><li>ROS / Linux robots</li><li>Low-latency Wi-Fi handover</li><li>Exoskeletten &amp; AMR's</li></ul>
-      </div>
+    <div class="apple-card">
+      <div class="apple-card-row"><div class="apple-card-label">Een eigen rijbaan</div><div class="apple-card-value">Een apart, afgeschermd netwerk voor de robots — los van het EPD en de werkplek, zodat het zorgsysteem nooit in gevaar komt.</div></div>
+      <div class="apple-card-row"><div class="apple-card-label">Stabiele verbinding</div><div class="apple-card-value">Wifi die de robot blijft volgen zonder te haperen, met een naadloze overgang tussen accesspoints.</div></div>
+      <div class="apple-card-row"><div class="apple-card-label">Heldere afspraken</div><div class="apple-card-value">Eenduidige afspraken met de externe IT-partij: wat mag, wie zorgt waarvoor, en hoe het veilig blijft — embodied AI die landt binnen de bestaande contracten.</div></div>
     </div>
 
     <div class="compliance">
@@ -390,10 +369,10 @@ h2.title { font-size: clamp(30px, 4.5vw, 46px); margin-top: 18px; }
       <span class="kicker">De 13 Oplossingen</span>
       <h2 class="title">Wat als niet de techniek het blokkeert, <span class="accent-green">maar hoe we het betalen?</span></h2>
       <p class="lead">
-        Bij elke case probeer ik twee dingen eerlijk naast elkaar te leggen: de
+        Bij elke case staan twee dingen eerlijk naast elkaar: de
         <strong style="color:var(--red-text)">perverse prikkel</strong> die de innovatie nu tegenhoudt, en een
-        <strong style="color:var(--green-text)">mogelijke route</strong> eruit. Geen blauwdruk — ik weet ook niet zeker
-        of het werkt. Eerder een begin van een gesprek. Misschien zie jij wat ik over het hoofd zie.
+        <strong style="color:var(--green-text)">mogelijke route</strong> eruit. Geen blauwdruk — eerder het begin van
+        een gesprek.
       </p>
     </div>
 
@@ -414,15 +393,15 @@ h2.title { font-size: clamp(30px, 4.5vw, 46px); margin-top: 18px; }
   <div class="wrap">
     <div class="section-head">
       <span class="kicker">Samenwerken</span>
-      <h2 class="title">Drie plekken waar ik <span class="accent-green">naast je kan staan</span>.</h2>
-      <p class="lead">Je stapt in waar je vraag zit — bij de strategie, bij de aanbesteding, of bij de harde IT. En blijkt onderweg dat robotica niet het antwoord is? Dan zeg ik dat gewoon.</p>
+      <h2 class="title">Drie manieren om <span class="accent-green">samen verder te komen</span>.</h2>
+      <p class="lead">Je stapt in waar de vraag zit — bij de strategie, bij de aanbesteding, of bij de harde IT. En blijkt onderweg dat robotica niet het antwoord is? Dan staat dat er net zo eerlijk.</p>
     </div>
     <div class="tracks">
       <div class="track">
         <div class="tn">01</div>
         <div>
           <h3>Robot-Readiness Scan</h3>
-          <p>In twee tot vier weken kijken we samen, eerlijk, of robotica in jouw situatie überhaupt iets toevoegt. Soms is het antwoord nee — en dan hoor je dat van me. Geen verkoopverhaal, wel een eerlijk beeld om zelf een goed besluit te nemen.</p>
+          <p>In twee tot vier weken een eerlijke blik op de vraag of robotica hier überhaupt iets toevoegt. Soms is het antwoord nee — en dan is dát het advies. Geen verkoopverhaal, wel een onderbouwd beeld om zelf een goed besluit te nemen.</p>
           <div class="meta">Workflow- &amp; capaciteitsanalyse · Business case &amp; ROI-bepaling · Bestuurlijk go / no-go advies</div>
         </div>
       </div>
@@ -430,7 +409,7 @@ h2.title { font-size: clamp(30px, 4.5vw, 46px); margin-top: 18px; }
         <div class="tn">02</div>
         <div>
           <h3>Aanbestedingsbegeleiding &amp; Businesscase</h3>
-          <p>Ik probeer de brug te zijn tussen wat het bestuur wil en wat de techniek kan. Geen jargon, geen salespraat — samen uitzoeken wat past, wat het mag kosten, en hoe je het betaalt.</p>
+          <p>De brug tussen wat het bestuur wil en wat de techniek kan. Geen jargon, geen salespraat — samen uitzoeken wat past, wat het mag kosten, en hoe het betaald wordt.</p>
           <div class="meta">Programma van eisen &amp; marktverkenning · Leveranciersselectie &amp; onderhandeling · Financieringsroute</div>
         </div>
       </div>
@@ -438,7 +417,7 @@ h2.title { font-size: clamp(30px, 4.5vw, 46px); margin-top: 18px; }
         <div class="tn">03</div>
         <div>
           <h3>De Technische Landingsbaan</h3>
-          <p>Dit is het stuk waar het vaak vastloopt, en waar ik me het meest op mijn plek voel. Samen met je IT-partij zoek ik naar een manier om de robot veilig te laten draaien: een apart netwerk, goede wifi, de zorgnormen netjes geregeld. Niet omdat ik alles al weet, maar omdat ik denk te weten wélke vragen we moeten stellen — NEN 7510, de EU AI Act en de Machinery Regulation incluis.</p>
+          <p>Het stuk waar het vaak vastloopt. Samen met de IT-partij ontstaat een manier om de robot veilig te laten draaien: een apart netwerk, goede wifi, de zorgnormen netjes geregeld. Niet vanuit alwetendheid, maar vanuit de juiste vragen — NEN 7510, de EU AI Act en de Machinery Regulation incluis.</p>
           <div class="meta">VLAN-ontwerp &amp; segmentatie · Onderhandeling met de IT-MSP · NEN 7510 · EU AI Act · Machinery Regulation</div>
         </div>
       </div>
@@ -453,9 +432,8 @@ h2.title { font-size: clamp(30px, 4.5vw, 46px); margin-top: 18px; }
       <span class="kicker">Keynote &amp; Spreker</span>
       <h2 class="title">"Zien is <span class="accent-green">geloven</span>."</h2>
       <p class="lead">
-        Ik geloof niet zo in slides over de toekomst. Liever laat ik 'm zien: ik neem een <strong>echte, fysieke
-        humanoïde robot</strong> mee het podium op. Niet om te imponeren — maar omdat ik me er zelf nog elke keer over
-        verwonder, en die verwondering wil ik graag delen.
+        Slides over de toekomst overtuigen niet. Een <strong>echte, fysieke humanoïde robot</strong> op het podium wél.
+        Niet om te imponeren — maar omdat de verwondering die hij oproept aanstekelijk is, en gedeeld mag worden.
       </p>
       <p class="lead" style="margin-top:14px;">
         Geen voorspelling dus, maar iets wat naast je staat, beweegt en reageert. En daarna een eerlijk gesprek:
@@ -493,9 +471,9 @@ h2.title { font-size: clamp(30px, 4.5vw, 46px); margin-top: 18px; }
       <span class="kicker">Contact</span>
       <h2 class="title">Zullen we eens <span class="accent-green">praten</span>?</h2>
       <p class="lead">
-        Herken je dit, en denk je ook weleens: als we hetzelfde blijven doen, houden we hetzelfde? Dan kom ik graag eens
-        langs. Niet om je iets te verkopen — wel om samen te kijken of het anders kan. Ik weet niet waar het toe leidt,
-        en dat vind ik eerlijk gezegd juist het mooie.
+        Herken je dit, en denk je ook weleens: als we hetzelfde blijven doen, houden we hetzelfde? Dan is dit een
+        uitnodiging. Niet om iets te verkopen — wel om samen te kijken of het anders kan. Waar het toe leidt is op
+        voorhand niet te zeggen, en juist dat maakt het de moeite waard.
       </p>
       <div class="contact-info">
         <a href="mailto:hallo@roelbot.nl">
@@ -544,7 +522,7 @@ h2.title { font-size: clamp(30px, 4.5vw, 46px); margin-top: 18px; }
   <div class="wrap">
     <div class="footer-top">
       <div>
-        <a href="#top" class="logo"><span class="icon">R</span><span>ROel<span class="bot">BOT</span></span></a>
+        <a href="#top" class="logo"><span class="icon">R</span><span>RO<span class="bot">el</span>BOT</span></a>
         <p class="about">ROelBOT Advisory is de Robotica-regisseur voor de Nederlandse zorg. Strategie, embodied AI en harde IT-infrastructuur — zodat innovatie landt in plaats van strandt.</p>
       </div>
       <nav class="footer-nav">
@@ -702,7 +680,7 @@ form.addEventListener('submit', (e) => {
     status.textContent = 'Vul even uw naam en een geldig e-mailadres in.'; return;
   }
   status.style.display = 'block'; status.style.color = 'var(--green-text)';
-  status.textContent = `Dank ${name.value.trim()}, ik heb je bericht. Ik kom er snel persoonlijk op terug.`;
+  status.textContent = `Dank ${name.value.trim()}, het bericht is binnen. Je hoort snel persoonlijk iets terug.`;
   form.reset();
 });
 
