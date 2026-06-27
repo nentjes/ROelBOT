@@ -96,8 +96,8 @@
     .card-hover:hover { transform: translateY(-4px); border-color: rgba(245,158,11,0.35); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.9); }
 
     /* Accordion */
-    .acc-body { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
-    .acc-item.open .acc-body { max-height: 600px; }
+    .acc-body { max-height: 0; overflow: hidden; transition: max-height .45s ease; }
+    .acc-item.open .acc-body { max-height: 900px; }
     .acc-item.open .acc-chevron { transform: rotate(45deg); }
 
     /* Filter active */
@@ -654,95 +654,100 @@
     // ---------- Use case data ----------
     const CASES = [
       {
-        n: 1, cat: 'revalidatie', catLabel: 'Revalidatie',
-        title: "De 'Transformer': Hybride Rolstoel-Exoskelet",
-        desc: "Eén device dat schakelt tussen rolstoel en sta-/loopfunctie, ter voorkoming van decubitus en medische complicaties.",
-        prikkel: "De Wmo (gemeente) betaalt de rolstoel, de Zvw (verzekeraar) de revalidatie. Niemand wil betalen voor een device dat in beide domeinen waarde levert — dus valt het cross-domain tussen wal en schip.",
-        neutralisatie: "Een cross-domain Wmo/Zvw lease-blueprint waarin de vermeden decubitus- en complicatiekosten (Zvw) de meerprijs boven de standaard rolstoel (Wmo) financieren. Eén device, gedeelde rekening."
+        n: 1, cat: 'revalidatie', catLabel: 'High-End Revalidatie',
+        title: `De 'Transformer': Hybride Rolstoel-Exoskelet`,
+        desc: `Een modulair robotic mobility device dat op lange afstanden functioneert als een compacte elektrische rolstoel, maar met één druk op de knop transformeert in een zelfbalancerend exoskelet waarmee de revalidant handsfree kan lopen en op ooghoogte communiceert.`,
+        prikkelTag: `De Domeinmuur`,
+        prikkel: `De gemeente (Wmo) betaalt de rolstoel voor transport. De verzekeraar (Zvw) betaalt de therapie. Niemand financiert de hybride transformer van €60k+, waardoor de patiënt passief blijft zitten en dure complicaties (doorligwonden, infecties) ontwikkelt.`,
+        neutralisatie: `Cross-domain financiering via een operational leasecontract. De Wmo betaalt het basistarief (equivalent rolstoel), de Zvw financiert de 'exoskelet-top-up' vanuit het transformatiebudget, omdat hiermee aantoonbaar zware medische complicatiekosten worden voorkomen.`
       },
       {
-        n: 2, cat: 'revalidatie', catLabel: 'Revalidatie',
-        title: "Kliniek-naar-Thuis Onderlichaam Exoskelet",
-        desc: "Revalidanten oefenen thuis verder met een onderlichaam-exoskelet, op afstand gemonitord (Merem/Reade-setting).",
-        prikkel: "Klinische revalidatie wordt per ligdag (DBC) bekostigd: een vol bed is omzet. Vroeger naar huis met een exoskelet voelt als omzetverlies, terwijl het medisch beter is.",
-        neutralisatie: "Verschuif van DBC-ligdagen naar Zvw-hulpmiddelenbudgetten met remote monitoring. Bedden komen vrij voor nieuwe instroom, de revalidant herstelt thuis, en de capaciteit per euro stijgt."
+        n: 2, cat: 'revalidatie', catLabel: 'Neurorevalidatie',
+        title: `Kliniek-naar-Thuis Onderlichaam Exoskelet`,
+        desc: `Intensieve robot-gestuurde looptraining (via Reinforcement Learning) binnen de kliniekmuren van centra zoals Merem of Reade. Zodra de patiënt stabiel is, gaat het exoskelet mee naar huis als huur-hulpmiddel gekoppeld aan monitoring op afstand.`,
+        prikkel: `Centra worden betaald per ligdag binnen de DBC. Als een patiënt door een exoskelet sneller herstelt en naar huis mag, verliest de kliniek direct omzet, terwijl de aanschaf van de robot zwaar op hun eigen budget drukt.`,
+        neutralisatie: `De kliniek declareert de hoogcomplexe opstartfase. Bij ontslag verschuift de financiering van het exoskelet direct naar het Hulpmiddelenbudget van de Zorgverzekeraar. De kliniek behoudt inkomsten via 'Remote Monitoring'-consulten.`
       },
       {
-        n: 3, cat: 'revalidatie', catLabel: 'Revalidatie',
-        title: "Actieve Soft-Suit Bovenlichaam Exoskelet",
-        desc: "Een myo-elektrische soft-suit (bijv. Myomo MyoPro) die arm- en handfunctie ondersteunt in blended care.",
-        prikkel: "Therapie wordt per face-to-face contactmoment vergoed. Eén-op-één behandelen is duur en schaars; het model beloont aanwezigheid, niet uitkomst.",
-        neutralisatie: "Blended care aangedreven door Reinforcement Learning verviervoudigt de therapeut-efficiëntie. Gefinancierd uit IZA-transformatiegelden: meer revalidanten per therapeut, betere uitkomsten, lagere kosten per traject."
+        n: 3, cat: 'revalidatie', catLabel: 'Neurorevalidatie',
+        title: `Actieve Soft-Suit voor het Bovenlichaam`,
+        desc: `Een draagbaar, myo-elektrisch soft-exoskelet (zoals de Myomo MyoPro) dat restspieractiviteit uitleest en versterkt, waardoor patiënten met een verlamde arm na een CVA of dwarslaesie weer zelfstandig kunnen eten, grijpen en oefenen — thuis, tussen de therapiesessies door.`,
+        prikkelTag: `De Aanwezigheidsval`,
+        prikkel: `Ergo- en fysiotherapie wordt vergoed per face-to-face contactmoment. Eén-op-één behandelen is duur en schaars; het model beloont de aanwezigheid van de therapeut, niet de functionele winst van de patiënt. Zelfstandig thuis oefenen levert de praktijk niets op.`,
+        neutralisatie: `Blended care, aangedreven door Reinforcement Learning dat de oefenintensiteit thuis automatisch bijstuurt, verviervoudigt de capaciteit per therapeut. Gefinancierd uit IZA-transformatiegelden: één behandelaar begeleidt op afstand een veelvoud aan revalidanten, met betere uitkomsten en lagere kosten per traject.`
       },
       {
-        n: 4, cat: 'vvt', catLabel: 'VVT / Ouderenzorg',
-        title: "De Autonome Nachtronde-Surveillance",
-        desc: "Een AMR met thermische camera's loopt de nachtronde en signaleert valincidenten of onrust zonder de cliënt te storen.",
-        prikkel: "De nacht draait op dure PNIL en zzp'ers binnen een vast Wlz-budget. Personeelskrapte maakt elke nachtdienst een financieel en organisatorisch risico.",
-        neutralisatie: "De AMR neutraliseert dure nachtinzet binnen het vaste Wlz-budget: minder ingehuurde diensten, meer toezicht-dekking, en vaste medewerkers die gericht reageren in plaats van structureel rondlopen."
+        n: 4, cat: 'vvt', catLabel: 'Ouderenzorg & VVT',
+        title: `De Autonome Nachtronde-Surveillance`,
+        desc: `Inzet van mobiele robots (AMR's) uitgerust met thermische camera's en AI-geluidssensoren die zelfstandig door de gangen van verpleeghuizen surveilleren om incidenten of dwaalgedrag realtime te signaleren.`,
+        prikkel: `Nachtzorg slokt door onregelmatigheidstoeslagen en zware PNIL-inzet (zzp'ers) een onevenredig groot deel van het vaste Zorgzwaartepakket (ZZP-Wlz) op, waardoor er overdag geen budget overblijft voor persoonlijke zorg.`,
+        neutralisatie: `De robot vervangt geen menselijke warmte, maar neutraliseert de noodzaak voor kostbare externe beveiligers en zzp'ers in de nacht. Eén centrale slaapwacht kan dankzij de robotica drie locaties veilig bewaken.`
       },
       {
-        n: 5, cat: 'vvt', catLabel: 'VVT / Ouderenzorg',
-        title: "De 'Wachtlijst-Buster' in de Thuiszorg",
-        desc: "Sociale en ADL-robots ondersteunen stabiele cliënten, zodat verpleegkundige uren vrijkomen voor nieuwe instroom.",
-        prikkel: "De wachtlijst staat vol terwijl het omzetplafond niet wordt gehaald: er is simpelweg geen personeel om de productie te draaien. Geld blijft op de plank liggen.",
-        neutralisatie: "Zet ADL-/sociale robots in bij stabiele cliënten om verpleegkundige uren vrij te spelen. Die uren ontsluiten de bevroren wachtlijst en laten de instelling het maximale omzetplafond benutten."
+        n: 5, cat: 'vvt', catLabel: 'Thuiszorg & Zvw',
+        title: `De 'Wachtlijst-Buster' bij Stabiele Cliënten`,
+        desc: `Inzet van sociale en ADL-ondersteunende robots bij chronische, stabiele cliënten voor structuur, medicatie-inname en activering, waardoor fysieke bezoeken drastisch omlaag kunnen.`,
+        prikkel: `Traditionele thuiszorg wordt betaald per geleverde minuut aan het bed. Efficiënter werken door de inzet van technologie leidt in het klassieke model direct tot omzetverlies voor de organisatie.`,
+        neutralisatie: `Zorgorganisaties halen hun omzetplafond nu niet door personeelstekort. Door robots in te zetten bij stabiele cliënten, komen schaarse handen vrij om direct de vastgelopen wachtlijst weg te werken. De omzet stijgt naar het maximum, de maatschappelijke druk daalt.`
       },
       {
-        n: 6, cat: 'vvt', catLabel: 'VVT / Ouderenzorg',
-        title: "De Medicatierobot gekoppeld aan VPT",
-        desc: "Een medicatiedispenser met toezicht op afstand reduceert het aantal fysieke huisbezoeken voor medicatiecontrole.",
-        prikkel: "Bij losse prestatiebekostiging is elk huisbezoek declarabel: minder langskomen betekent minder omzet. Het model straft efficiëntie af.",
-        neutralisatie: "Binnen het Volledig Pakket Thuis (VPT) ontvangt de instelling een vast lumpsum-budget. Door fysieke medicatiecontroles met ~80% te verlagen, stijgt de marge binnen datzelfde budget — efficiëntie wordt eindelijk beloond."
+        n: 6, cat: 'vvt', catLabel: 'Thuiszorg & VPT',
+        title: `De Medicatierobot gekoppeld aan het VPT`,
+        desc: `Een slimme medicatiedispenser met camera-toezicht en alarmering op afstand die de juiste dosis op het juiste moment uitgeeft en de inname registreert, zodat een verpleegkundige alleen nog hoeft in te grijpen bij een afwijking.`,
+        prikkel: `Bij losse prestatiebekostiging is elk fysiek huisbezoek voor een medicatiecheck declarabel. Minder langskomen betekent in dat model direct minder omzet — efficiëntie wordt financieel afgestraft.`,
+        neutralisatie: `Binnen het Volledig Pakket Thuis (VPT) ontvangt de organisatie een vast lumpsum-budget per cliënt. Door de fysieke medicatiecontroles met circa 80% terug te brengen, stijgt de marge binnen datzelfde budget. De vrijgespeelde uren gaan naar cliënten die wél fysieke zorg nodig hebben.`
       },
       {
-        n: 7, cat: 'revalidatie', catLabel: 'Revalidatie',
-        title: "Revalidatierobotica met Outcome-Based Financiering",
-        desc: "Robotondersteunde training versnelt herstel; de bekostiging wordt gekoppeld aan de behaalde uitkomst.",
-        prikkel: "Klassieke bekostiging beloont volume en doorlooptijd, niet snelheid van herstel. Sneller herstel = minder declarabele momenten = minder omzet.",
-        neutralisatie: "Onderhandel shared-savings en hersteltbonussen met de verzekeraar: een deel van de bespaarde revalidatietijd vloeit terug naar de instelling. Sneller herstel wordt een verdienmodel in plaats van een verliespost."
+        n: 7, cat: 'revalidatie', catLabel: 'Revalidatie & Bekostiging',
+        title: `Revalidatierobotica met Outcome-Based Financiering`,
+        desc: `Robot-geassisteerde looptraining en arm-handtherapie die door hoge, gestandaardiseerde herhaling (RL-gestuurd) de revalidatieduur meetbaar verkort, gekoppeld aan een bekostiging die afrekent op behaald functioneel resultaat in plaats van op duur.`,
+        prikkelTag: `De Volumeval`,
+        prikkel: `De klassieke bekostiging beloont volume en doorlooptijd, niet de snelheid van herstel. Een patiënt die door robotica sneller revalideert, levert minder declarabele behandelmomenten op — sneller beter is een verliespost.`,
+        neutralisatie: `Onderhandel een shared-savings-afspraak of herstelbonus met de zorgverzekeraar: een deel van de bespaarde behandeltijd en vermeden vervolgzorg vloeit terug naar het centrum. Sneller herstel wordt zo een verdienmodel in plaats van een gat in de begroting.`
       },
       {
-        n: 8, cat: 'ziekenhuis', catLabel: 'Ziekenhuizen',
-        title: "Logistieke AMR's in Ziekenhuizen",
-        desc: "Autonome transportrobots verplaatsen linnen, maaltijden en materialen, zodat verpleegkundigen aan het bed blijven.",
-        prikkel: "Logistiek zit verstopt in de overhead en wordt zelden expliciet gemaakt. Verpleegkundigen lopen kilometers per dienst — onzichtbaar in de DBC, maar zeer duur.",
-        neutralisatie: "AMR's verlagen de overheadkosten en halen verpleegkundigen weg bij sjouwwerk. De vrijgespeelde tijd verhoogt de medische productiviteit per DBC: meer zorg, dezelfde formatie."
+        n: 8, cat: 'ziekenhuis', catLabel: 'Ziekenhuislogistiek',
+        title: `Logistieke AMR's in het Ziekenhuis`,
+        desc: `Een vloot autonome transportrobots (AMR's) die linnen, maaltijden, medicatie en steriele goederen door het ziekenhuis verplaatst, met de lift mee, dag en nacht — zodat verpleegkundigen aan het bed blijven in plaats van op de gang te lopen.`,
+        prikkel: `Interne logistiek zit verstopt in de overhead en wordt zelden expliciet gemaakt. Verpleegkundigen lopen kilometers per dienst met karren; onzichtbaar in de DBC, maar peperduur in schaarse en dure handen.`,
+        neutralisatie: `AMR's verlagen de overheadkosten en halen verpleegkundigen weg bij sjouwwerk. De vrijgespeelde tijd verhoogt de medische productiviteit per DBC: meer behandelcapaciteit met dezelfde formatie, zonder dat er één zorgmedewerker bij hoeft.`
       },
       {
-        n: 9, cat: 'vvt', catLabel: 'VVT / Ouderenzorg',
-        title: "Preventieve Robotica via Wmo-Beschikbaarheidssubsidie",
-        desc: "Preventieve inzet van robotica houdt kwetsbare burgers langer zelfredzaam en uit de duurdere Zvw-zorg.",
-        prikkel: "De gemeente (Wmo) investeert in preventie, maar de besparing valt bij de verzekeraar (Zvw). Wie betaalt, plukt niet de vruchten — de klassieke schotten-impasse.",
-        neutralisatie: "Doorbreek de muur tussen Wmo en Zvw met IZA-transformatiegelden en een regionale shared-savings afspraak. De gedeelde besparing financiert de preventieve inzet over de domeingrens heen."
+        n: 9, cat: 'vvt', catLabel: 'Preventie & Domeinoverstijgend',
+        title: `Preventieve Robotica via Wmo-Beschikbaarheidssubsidie`,
+        desc: `Vroegtijdige inzet van activerende en signalerende robotica bij kwetsbare thuiswonende ouderen, zodat valincidenten, ondervoeding en vereenzaming worden voorkomen en mensen langer zelfredzaam blijven — buiten de duurdere Zvw- en Wlz-zorg.`,
+        prikkelTag: `De Domeinmuur`,
+        prikkel: `De gemeente (Wmo) draait op voor de investering in preventie, maar de besparing valt bij de zorgverzekeraar (Zvw) en de Wlz. Wie betaalt, plukt de vruchten niet — de klassieke schotten-impasse die preventie structureel blokkeert.`,
+        neutralisatie: `Doorbreek de muur tussen Wmo en Zvw met IZA-transformatiegelden en een regionale shared-savings-afspraak. De gezamenlijk bespaarde zorgkosten financieren met terugwerkende kracht de preventieve inzet — over de domeingrens heen, met gedeelde winst voor gemeente én verzekeraar.`
       },
       {
-        n: 10, cat: 'vvt', catLabel: 'VVT / Ouderenzorg',
-        title: "Desinfectierobots uit de Wooncomponent",
-        desc: "Robots automatiseren het reinigen en desinfecteren van het verpleeghuis, wat vastgoed- en schoonmaakkosten verlaagt.",
-        prikkel: "Schoonmaak zit in de wooncomponent/vastgoedexploitatie, gescheiden van het zorgbudget. Besparen op vastgoed levert de zorgafdeling niets op — dus gebeurt het niet.",
-        neutralisatie: "Automatiseer de reiniging om de vastgoed-overhead te verlagen en verschuif dat budget legitiem naar hands-on cliëntzorg. Schone gangen én meer handen aan het bed, uit dezelfde euro."
+        n: 10, cat: 'vvt', catLabel: 'Vastgoed & VVT',
+        title: `Desinfectierobots uit de Wooncomponent`,
+        desc: `Autonome UV-C- en sproeirobots die 's nachts gangen, sanitair en gemeenschappelijke ruimtes van het verpleeghuis reinigen en desinfecteren, met een aantoonbaar lager infectierisico en minder inzet van extern schoonmaakpersoneel.`,
+        prikkel: `Schoonmaak en hygiëne zitten in de wooncomponent en de vastgoedexploitatie, strikt gescheiden van het zorgbudget. Besparen op die post levert de zorgafdeling niets op, dus blijft de innovatie liggen ondanks de personeelskrapte.`,
+        neutralisatie: `Automatiseer de reiniging om de vastgoed- en facilitaire overhead te verlagen, en verschuif dat vrijgespeelde budget legitiem naar hands-on cliëntzorg. Schonere, veiligere gangen én meer handen aan het bed — gefinancierd uit dezelfde vierkante meter.`
       },
       {
-        n: 11, cat: 'vvt', catLabel: 'VVT / Ouderenzorg',
-        title: "De ADL-Keukenrobot in het MPT",
-        desc: "Een robotarm ondersteunt cliënten bij eten en drinken, waardoor laag-complexe zorguren teruglopen.",
-        prikkel: "Hulp bij maaltijden is laag-complexe, arbeidsintensieve zorg die schaars personeel opslokt. In het reguliere model is er geen ruimte om dit te automatiseren.",
-        neutralisatie: "Binnen het Modulair Pakket Thuis (MPT) least de cliënt de robotarm uit het eigen techniek-/hulpmiddelenbudget. Laag-complexe uren dalen, regie bij de cliënt stijgt, en personeel gaat naar complexe zorg."
+        n: 11, cat: 'vvt', catLabel: 'Thuiszorg & MPT',
+        title: `De ADL-Keukenrobot in het MPT`,
+        desc: `Een robotarm op het aanrecht die cliënten met een beperking helpt bij eten, drinken en eenvoudige maaltijdbereiding, waardoor de regie bij de cliënt blijft en arbeidsintensieve, laag-complexe zorguren teruglopen.`,
+        prikkel: `Hulp bij maaltijden is laag-complexe, zeer arbeidsintensieve zorg die schaars personeel opslokt. In het reguliere model is er geen ruimte of prikkel om deze handelingen te automatiseren — de uren moeten 'gemaakt' worden.`,
+        neutralisatie: `Binnen het Modulair Pakket Thuis (MPT) least de cliënt de robotarm uit het eigen techniek- en hulpmiddelenbudget. De laag-complexe zorguren dalen, de autonomie van de cliënt stijgt, en het schaarse personeel kan worden ingezet op de complexe zorg die écht mensenwerk is.`
       },
       {
-        n: 12, cat: 'ziekenhuis', catLabel: 'Ziekenhuizen',
-        title: "Robot-geassisteerde Lab- en Apotheekautomatisering",
-        desc: "Robotica automatiseert repetitieve lab- en apotheekhandelingen in de backoffice, zonder snijden in personeel.",
-        prikkel: "Backoffice-efficiëntie is onzichtbaar in de zorgverkoop en levert geen directe DBC op. Investeren voelt als kostenpost zonder opbrengst.",
-        neutralisatie: "Automatiseer de backoffice om de kosten-per-handeling drastisch te verlagen. Dat geeft het ziekenhuis een scherpere onderhandelingspositie richting verzekeraars — winst zónder te snijden in personeel."
+        n: 12, cat: 'ziekenhuis', catLabel: 'Ziekenhuis Backoffice',
+        title: `Robot-geassisteerde Lab- en Apotheekautomatisering`,
+        desc: `Robotica die repetitieve, foutgevoelige handelingen in het lab en de ziekenhuisapotheek automatiseert — van het klaarmaken van infusen en cytostatica tot het sorteren van monsters — 24/7, met constante kwaliteit en volledige traceerbaarheid.`,
+        prikkel: `Backoffice-efficiëntie is onzichtbaar in de zorgverkoop en levert geen directe DBC op. Investeren voelt als een pure kostenpost zonder opbrengst, dus blijft het achterwege — terwijl de kosten-per-handeling oplopen.`,
+        neutralisatie: `Automatiseer de backoffice om de kosten-per-handeling drastisch te verlagen. Dat geeft het ziekenhuis een scherpere prijs en een sterkere onderhandelingspositie richting zorgverzekeraars — winst die wordt geboekt zónder te snijden in zorgpersoneel.`
       },
       {
-        n: 13, cat: 'ziekenhuis', catLabel: 'Ziekenhuizen',
-        title: 'De "De-escalatie" Robot in de GGZ',
-        desc: "Een rustgevende, interactieve robot helpt bij de-escalatie in crisissituaties en vermindert separatie-inzet.",
-        prikkel: "Separatie en crisisopvang zijn arbeidsintensief en leiden tot agressie-gerelateerd ziekteverzuim. De reguliere bekostiging biedt geen ruimte voor preventieve innovatie.",
-        neutralisatie: "Gebruik NZa-Innovatiebekostiging voor crisis-reducerende robotica. Minder dure separatie-uren en minder agressie-gerelateerd verzuim maken de businesscase rond — betere zorg én lagere kosten."
+        n: 13, cat: 'ziekenhuis', catLabel: 'GGZ & Crisiszorg',
+        title: `De 'De-escalatie'-Robot in de GGZ`,
+        desc: `Een kalmerende, interactieve sociale robot die in crisissituaties prikkels reguleert, afleiding en structuur biedt en zo agressie helpt de-escaleren — waardoor separatie en dwang minder vaak nodig zijn.`,
+        prikkelTag: `De Verzuimspiraal`,
+        prikkel: `Separatie en crisisopvang zijn extreem arbeidsintensief en leiden tot agressie-gerelateerd ziekteverzuim onder personeel. De reguliere bekostiging biedt geen ruimte voor de preventieve technologie die deze spiraal kan doorbreken.`,
+        neutralisatie: `Zet NZa-Innovatiebekostiging in voor crisis-reducerende robotica. Minder dure separatie-uren en minder agressie-gerelateerd verzuim maken de businesscase rond — betere, menswaardigere zorg én structureel lagere kosten.`
       },
     ];
 
@@ -750,10 +755,10 @@
     const grid = document.getElementById('caseGrid');
     function cardHTML(c) {
       return `
-      <article class="case-card reveal in card-hover flex flex-col rounded-3xl border border-stroke bg-panel/60 p-6 shadow-card" data-cat="${c.cat}">
+      <article class="case-card group reveal in card-hover flex flex-col rounded-3xl border border-stroke bg-panel/60 p-6 shadow-card" data-cat="${c.cat}">
         <div class="flex items-center justify-between">
-          <span class="inline-flex items-center gap-1.5 rounded-full border border-stroke bg-night/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-muted">${c.catLabel}</span>
-          <span class="font-display text-sm font-bold text-stroke">${String(c.n).padStart(2,'0')}</span>
+          <span class="inline-flex items-center gap-1.5 rounded-md border border-amber/20 bg-amber/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-amber font-mono">${c.catLabel}</span>
+          <span class="font-mono text-xs font-medium text-stroke group-hover:text-amber transition-colors">Case #${String(c.n).padStart(2,'0')}</span>
         </div>
 
         <h3 class="mt-4 font-display text-lg font-semibold leading-snug text-white">${c.title}</h3>
@@ -762,8 +767,8 @@
         <div class="mt-5 space-y-2.5 acc-wrap">
           <div class="acc-item rounded-2xl border border-rose/25 bg-rose/[0.06]">
             <button class="acc-trigger flex w-full items-center justify-between gap-3 px-4 py-3 text-left">
-              <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-rose">
-                <span class="h-1.5 w-1.5 rounded-full bg-rose"></span> De Perverse Prikkel
+              <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-rose font-mono">
+                <span class="h-1.5 w-1.5 rounded-full bg-rose"></span> De Perverse Prikkel${c.prikkelTag ? ` <span class="text-rose/70 normal-case">(${c.prikkelTag})</span>` : ''}
               </span>
               <span class="acc-chevron text-rose transition-transform">
                 <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
@@ -774,7 +779,7 @@
 
           <div class="acc-item rounded-2xl border border-emerald/25 bg-emerald/[0.06]">
             <button class="acc-trigger flex w-full items-center justify-between gap-3 px-4 py-3 text-left">
-              <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-emerald">
+              <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-emerald font-mono">
                 <span class="h-1.5 w-1.5 rounded-full bg-emerald"></span> De ROelBOT Neutralisatie
               </span>
               <span class="acc-chevron text-emerald transition-transform">
