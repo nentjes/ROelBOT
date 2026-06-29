@@ -186,6 +186,8 @@ h2.title { font-size: clamp(30px, 4.5vw, 46px); margin-top: 18px; }
 @media (max-width: 720px) { .uc-grid { grid-template-columns: 1fr; } }
 .uc { background: var(--bg); border-radius: var(--radius-lg); box-shadow: var(--card-shadow); padding: 24px; display: flex; flex-direction: column; transition: box-shadow .2s, transform .2s; }
 .uc:hover { box-shadow: var(--card-shadow-hover); transform: translateY(-2px); }
+.uc-thumb { width: 100%; height: 160px; margin-bottom: 18px; border: 0.5px solid var(--separator); border-radius: 8px; background: var(--gray-100); overflow: hidden; }
+.uc-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .uc-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .tag { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 8px; }
 .tag-reval { background: #E7F0FF; color: #0B5BD3; }
@@ -621,9 +623,25 @@ const CASES = [
 ];
 
 const grid = document.getElementById('ucGrid');
+const CASE_IMG = {
+  1:'/images/cases/case-01-transformer.jpg',
+  2:'/images/cases/case-02-onderlichaam-exoskelet.jpg',
+  3:'/images/cases/case-03-softsuit-bovenlichaam.jpg',
+  4:'/images/cases/case-04-nachtronde-amr.jpg',
+  5:'/images/cases/case-05-wachtlijst-buster.jpg',
+  6:'/images/cases/case-06-medicatierobot-vpt.jpg',
+  7:'/images/cases/case-07-revalidatierobotica-outcome.jpg',
+  8:'/images/cases/case-08-logistieke-amr.jpg',
+  9:'/images/cases/case-09-preventieve-robotica.jpg',
+  10:'/images/cases/case-10-desinfectierobot.jpg',
+  11:'/images/cases/case-11-keukenrobot-mpt.jpg',
+  12:'/images/cases/case-12-apotheekautomatisering.jpg',
+  13:'/images/cases/case-13-deescalatie-ggz.jpg',
+};
 function ucHTML(c){
   return `
   <article class="uc" data-cat="${c.cat}">
+    <div class="uc-thumb"><img src="${CASE_IMG[c.n]}" alt="${c.title.replace(/"/g,'&quot;')}" loading="lazy" onerror="this.style.display='none'"></div>
     <div class="uc-top">
       <span class="tag ${c.tag}">${c.catLabel}</span>
       <span class="uc-num">Case ${String(c.n).padStart(2,'0')}</span>
